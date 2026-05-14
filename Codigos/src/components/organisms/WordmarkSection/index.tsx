@@ -22,6 +22,7 @@ export interface WordmarkSectionProps {
   wordmark?: string;
   wordmarkClassName?: string;
   hideWordmark?: boolean;
+  reverse?: boolean;
 }
 
 const defaultTitle = (
@@ -48,10 +49,12 @@ const WordmarkSection = ({
   wordmark = "SPLENDOR·I",
   wordmarkClassName,
   hideWordmark = false,
+  reverse = false,
 }: WordmarkSectionProps) => {
   const [showFloatingMessage, setShowFloatingMessage] = useState(false);
   const hasFloating = floatingMessages.length > 0;
   const hasButton = Boolean(buttonText);
+  const isProblemBadge = badge === "O PROBLEMA";
 
   const showFloatingHandlers = hasFloating
     ? {
@@ -65,6 +68,7 @@ const WordmarkSection = ({
       className={cn(
         "flex flex-row items-center p-0 w-full h-126.5 border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] bg-white dark:bg-[#0A0A0A]",
         hideWordmark && "justify-center",
+        reverse && "flex-row-reverse",
         className
       )}
       {...(!hasButton ? showFloatingHandlers : {})}
@@ -84,7 +88,10 @@ const WordmarkSection = ({
           )}
         >
           <div className="flex flex-col items-start p-0 w-108.75">
-            <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] reveal-element">
+            <span className={cn(
+              "font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] reveal-element",
+              isProblemBadge && "anna-problem-kicker"
+            )}>
               {badge}
             </span>
 
@@ -93,7 +100,7 @@ const WordmarkSection = ({
             </h2>
           </div>
 
-          <p className="font-sans font-semibold text-[14px] leading-4.75 text-[#8E90A1] self-stretch reveal-element delay-[400ms]">
+          <p className="font-sans font-normal text-[14px] leading-4.75 text-[#8E90A1] self-stretch reveal-element delay-[400ms]">
             {description}
           </p>
 
@@ -131,7 +138,10 @@ const WordmarkSection = ({
       </div>
 
       {!hideWordmark && (
-        <div className="box-border flex flex-col justify-end items-center p-0 gap-2.5 w-1/2 h-full bg-white dark:bg-[#0A0A0A] border-l border-r border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] overflow-hidden relative">
+        <div className={cn(
+          "box-border flex flex-col justify-end items-center p-0 gap-2.5 w-1/2 h-full bg-white dark:bg-[#0A0A0A] border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] overflow-hidden relative",
+          reverse ? "border-l" : "border-l border-r"
+        )}>
           <div className={cn("font-new-icon-serif font-normal text-[180px] leading-17.5 flex items-center text-center tracking-[-7px] text-[rgba(50,55,81,0.1)] select-none mr-2.5 ", wordmarkClassName)}>
             {wordmark}
           </div>

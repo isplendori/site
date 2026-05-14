@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 
@@ -13,11 +13,11 @@ export interface FloatingMessageProps {
 const FloatingMessage = ({ messages, isVisible = false, className }: FloatingMessageProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [currentMessage, setCurrentMessage] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

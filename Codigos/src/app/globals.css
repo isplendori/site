@@ -85,6 +85,12 @@ body {
 }
 
 /* Scroll Reveal Animations (Luxury entry/exit) */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(25px);
+  filter: blur(12px);
+}
+
 .reveal-target {
   opacity: 0;
   transform: translateY(25px);
@@ -101,6 +107,88 @@ body {
   filter: blur(0);
 }
 
+.hero-root.reveal-target {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+.hero-architecture-reveal,
+.hero-support-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(12px);
+  animation: heroCascadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform, filter;
+}
+
+.hero-architecture-reveal {
+  transform: translateY(10px) scale(0.985);
+  filter: blur(16px);
+  animation-delay: 0ms;
+  animation-duration: 1s;
+}
+
+.hero-architecture-reveal.reveal-target {
+  transform: translateY(10px) scale(0.985);
+  filter: blur(16px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-copy-reveal.reveal-target {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+  will-change: auto;
+}
+
+.hero-copy-reveal.reveal-element {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.hero-word {
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(18px);
+  animation: heroCascadeIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform, filter;
+}
+
+.hero-support-reveal.reveal-target {
+  transform: translateY(14px);
+  filter: blur(10px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-architecture-reveal.reveal-target.is-revealed,
+.hero-support-reveal.reveal-target.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.hero-copy-reveal.reveal-target.is-revealed .hero-word {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+@keyframes heroCascadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -113,11 +201,118 @@ body {
 
 .animate-marquee {
   width: max-content;
-  animation: marquee 50s linear infinite;
+  animation: marquee 85s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+.animate-dropdown-in {
+  transform-origin: top left;
+  animation: dropdownIn 220ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-star-green {
+  opacity: 0;
+  transform: translateY(6px);
+  filter: blur(8px);
+  transition: none;
+  will-change: opacity, transform, filter;
+}
+
+.animate-star-green.reveal-target {
+  opacity: 0;
+  transform: translateY(6px);
+  filter: blur(8px);
+  transition: none;
+}
+
+.animate-star-green.is-revealed {
+  animation: starGreenIn 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
+    starGreenFloat 5s ease-in-out 900ms infinite;
+}
+
+.anna-problem-kicker,
+.anna-solution-kicker {
+  position: relative;
+  display: inline-flex;
+  width: max-content;
+}
+
+.anna-solution-kicker::before {
+  content: "O PROBLEMA";
+  position: absolute;
+  inset: 0;
+  color: #9E372A;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(5px);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.anna-solution-kicker.is-revealed::before {
+  animation: annaProblemGhost 980ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes annaProblemGhost {
+  0% {
+    opacity: 0;
+    filter: blur(9px);
+    transform: translateY(6px);
+  }
+
+  34% {
+    opacity: 0.68;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes starGreenIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes starGreenFloat {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.88;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @custom-variant dark (&:is(.dark *));

@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 interface ProjectMetaProps {
   year?: string | number;
   responsible?: string;

@@ -6,4 +6,5 @@ export { default as Logo } from "./Logo";
 export { default as DropdownItem } from "./DropdownItem";
 export { default as FloatingMessage } from "./FloatingMessage";
 export { default as HeroArchitecture } from "./HeroArchitecture";
+export { default as ScrollToTop } from "./ScrollToTop";
 export * from "./Icon";

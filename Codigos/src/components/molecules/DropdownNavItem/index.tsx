@@ -2,6 +2,7 @@
 
 import { useState, useRef, type ReactNode } from "react";
 import ChevronDown from "@/atoms/Icon/ChevronDown";
+import { cn } from "@/lib/utils";
 
 export interface DropdownNavItemProps {
   label: string;
@@ -41,7 +42,9 @@ const DropdownNavItem = ({ label, children }: DropdownNavItemProps) => {
         <span className="font-inter font-normal text-[15px] leading-6.5 whitespace-nowrap">
           {label}
         </span>
-        <ChevronDown />
+        <span className={cn("transition-transform duration-200 ease-out", isOpen && "rotate-180")}>
+          <ChevronDown />
+        </span>
       </button>
       {isOpen && (
         <div className="absolute left-0 top-6.5 z-50 animate-dropdown-in pt-3">

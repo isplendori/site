@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Manrope, Figtree, Instrument_Serif, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import ScrollObserver from "@/components/atoms/ScrollObserver";
+import ScrollToTop from "@/components/atoms/ScrollToTop";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -73,7 +75,16 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${figtree.variable} ${instrumentSerif.variable} ${newIconSerif.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Script id="scroll-restoration" strategy="beforeInteractive">
+          {`
+            if ("scrollRestoration" in history) {
+              history.scrollRestoration = "manual";
+            }
+            scrollTo(0, 0);
+          `}
+        </Script>
         {children}
+        <ScrollToTop />
         <ScrollObserver />
       </body>
     </html>

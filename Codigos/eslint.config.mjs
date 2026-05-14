@@ -12,6 +12,14 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "fix-svg.js",
+    "replace.js",
+    "replace-dark-mode.js",
+    "replace-hero.js",
+    "src/fix-svg.js",
+    "src/replace.js",
+    "src/replace-dark-mode.js",
+    "src/replace-hero.js",
   ]),
 ]);
 

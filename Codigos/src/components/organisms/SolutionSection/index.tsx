@@ -29,7 +29,7 @@ const SolutionSection = ({
     >
       <div className="flex flex-col justify-center items-start px-13.5 py-13.5 w-full">
         <div className="flex flex-col items-start gap-3.5 w-108.75">
-          <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
+          <span className="anna-solution-kicker reveal-element font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
             {badge}
           </span>
 

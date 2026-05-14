@@ -13,6 +13,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="1216" height="100" fill="url(#pattern0_8010_22182)" fillOpacity="0.59" />
+            <line x1="0" y1="99.5" x2="1216" y2="99.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
             <defs>
               <pattern id="pattern0_8010_22182" patternContentUnits="objectBoundingBox" width="0.00986842" height="0.12">
                 <use xlinkHref="#image0_8010_22182" transform="scale(0.000822368 0.01)" />
@@ -20,9 +21,10 @@ export default function Home() {
               <image id="image0_8010_22182" width="12" height="12" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAwSURBVHgB7cyxDQAwCANBb55snJDINcgbQInE16cHEtnnuo9+jHtwR6wqWHNUsOYB9qJ+JZ0YYfoAAAAASUVORK5CYII=" />
             </defs>
           </svg>
-          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute bottom-[-36px] left-7" />
+          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute bottom-[-36px] left-7 reveal-element animate-star-green" />
         </div>
-        <WordmarkSection />
+        <WordmarkSection className="!border-t-0" />
+        <WordmarkSection className="!border-t-0" reverse />
         <SolutionSection />
         <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -42,7 +44,7 @@ export default function Home() {
             </defs>
           </svg>
 
-          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute bottom-[-36px] right-7" />
+          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute bottom-[-36px] right-7 reveal-element animate-star-green" />
         </div>
         <ProcessCardsSection />
         <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
@@ -86,7 +88,7 @@ export default function Home() {
               <image id="image0_8010_22182" width="12" height="12" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAwSURBVHgB7cyxDQAwCANBb55snJDINcgbQInE16cHEtnnuo9+jHtwR6wqWHNUsOYB9qJ+JZ0YYfoAAAAASUVORK5CYII=" />
             </defs>
           </svg>
-          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute bottom-[-36px] left-7" />
+          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute bottom-[-36px] left-7 reveal-element animate-star-green" />
         </div>
         <ToolsSection />
         <div className="flex flex-col items-center justify-center w-full h-full relative">
@@ -102,7 +104,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center justify-center w-full h-full relative my-40 ">
           <hr className="w-full h-2 text-[rgba(114,123,142,0.1)]" />
-          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute -bottom-7.25 right-7" />
+          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute -bottom-7.25 right-7 reveal-element animate-star-green" />
         </div>
         <SolutionSection
           className="border-t border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]"

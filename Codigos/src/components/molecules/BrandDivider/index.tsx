@@ -33,7 +33,11 @@ const BrandDivider = ({
               key={`${brand.id}-${index}`}
               className="flex-shrink-0 flex flex-col justify-center items-center w-26.25 h-full bg-white dark:bg-[#0A0A0A] border-r border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] transition-colors group cursor-pointer"
             >
-              <div className="text-[#F1F2F4] group-hover:text-[#9E372A] transition-colors [&_svg]:transition-colors [&_path]:transition-colors [&_path]:fill-current [&_svg]:fill-current">
+              <div className="relative flex items-center justify-center text-[#F1F2F4] group-hover:text-[#9E372A] transition-colors duration-500 ease-out [&_svg]:relative [&_svg]:z-10 [&_svg]:transition-colors [&_svg]:duration-500 [&_path]:transition-colors [&_path]:duration-500 [&_path]:fill-current [&_svg]:fill-current">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(158,55,42,0.18)_0%,rgba(158,55,42,0.08)_38%,rgba(158,55,42,0)_72%)] opacity-0 blur-md transition-opacity duration-500 ease-out group-hover:opacity-100"
+                />
                 {brand.icon}
               </div>
             </div>

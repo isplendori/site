@@ -15,7 +15,7 @@ const ToolsSection = ({ className }: ToolsSectionProps) => {
   }, []);
 
   return (
-    <section className={cn("w-full bg-white dark:bg-[#0A0A0A] relative overflow-hidden border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]", className)}>
+    <section className={cn("w-full bg-white dark:bg-[#0A0A0A] relative overflow-hidden border-t border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]", className)}>
       <div className="relative w-full">
         <IconGrid icons={topRowIcons} cols={12} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={0} />
         <IconGrid icons={topRowIcons} cols={12} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={12} />
@@ -23,7 +23,7 @@ const ToolsSection = ({ className }: ToolsSectionProps) => {
 
         <div className="flex flex-col md:flex-row items-center justify-center pointer-events-none">
           <div className="hidden md:block">
-            <IconGrid icons={sideGridIcons} cols={3} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={36} enablePointerEvents />
+            <IconGrid icons={sideGridIcons} cols={3} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={36} enablePointerEvents drawRightEdge />
           </div>
           <ContentCard />
           <div className="hidden md:block">
@@ -33,7 +33,7 @@ const ToolsSection = ({ className }: ToolsSectionProps) => {
 
         <IconGrid icons={topRowIcons} cols={12} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={54} />
         <IconGrid icons={topRowIcons} cols={12} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={66} />
-        <IconGrid icons={topRowIcons} cols={12} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={78} />
+        <IconGrid icons={topRowIcons} cols={12} hoveredIndex={hoveredIndex} onHover={handleHover} startIndex={78} drawBottomEdge={false} />
       </div>
     </section>
   );

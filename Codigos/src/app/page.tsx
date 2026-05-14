@@ -118,7 +118,7 @@ export default function Home() {
         </div>
         <ToolsSection />
         <div className="flex flex-col items-center justify-center w-full h-full relative">
-          <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+          <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
             <rect width="1216" height="100" fill="url(#pattern0_8010_22182)" fillOpacity="0.59" />
             <defs>
               <pattern id="pattern0_8010_22182" patternContentUnits="objectBoundingBox" width="0.00986842" height="0.12">
@@ -128,12 +128,11 @@ export default function Home() {
             </defs>
           </svg>
         </div>
-        <div className="flex flex-col items-center justify-center w-full h-full relative my-40 ">
-          <hr className="w-full h-2 text-[rgba(114,123,142,0.1)]" />
-          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute -bottom-7.25 right-7 reveal-element animate-star-green" />
+        <div className="relative h-[236.5px] w-full bg-white dark:bg-[#0A0A0A]">
+          <div className="absolute inset-x-0 top-0 h-[200px] border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]" />
+          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute right-[26px] top-[163.5px] reveal-element animate-star-green" />
         </div>
         <SolutionSection
-          className="border-t border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]"
           floatingMessages={['COMO TRABALHAMOS']} showFloatingMessage
         />
         <GrowthChartSection />

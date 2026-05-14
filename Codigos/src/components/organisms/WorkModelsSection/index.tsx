@@ -13,8 +13,8 @@ const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
   const [showFloatingMessage, setShowFloatingMessage] = useState(false);
 
   return (
-    <section className={cn("flex flex-col lg:flex-row w-full h-auto lg:h-123 bg-white dark:bg-[#0A0A0A]", className)}>
-      <div className="w-full lg:w-1/3 h-auto lg:h-full py-12 lg:py-0 px-4 lg:px-0 border-b lg:border-b-0 lg:border-r border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] flex items-center justify-center">
+    <section className={cn("flex w-full flex-col border-y border-[rgba(114,123,142,0.1)] bg-white dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] lg:h-[490px] lg:flex-row", className)}>
+      <div className="flex h-auto w-full items-center justify-center border-b border-[rgba(114,123,142,0.1)] px-4 py-12 dark:border-[rgba(255,255,255,0.1)] lg:h-full lg:w-[432px] lg:border-b-0 lg:border-r lg:px-0 lg:py-0">
         <div className="w-full lg:w-82.25 h-auto lg:h-96 flex flex-col items-start gap-2.5">
           <div className="w-full flex flex-col items-start">
             <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
@@ -54,8 +54,8 @@ const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
         </div>
       </div>
 
-      <div className="w-full lg:flex-1 h-auto lg:h-full flex flex-col">
-        <div className="h-auto lg:h-61.5 py-12 lg:py-0 px-4 lg:px-0 w-full flex items-center justify-center bg-white dark:bg-[#0A0A0A] border-b lg:border-t lg:border-b-0 border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
+      <div className="flex h-auto w-full flex-col lg:h-full lg:flex-1">
+        <div className="flex h-auto w-full items-center justify-center border-b border-[rgba(114,123,142,0.1)] bg-white px-4 py-12 dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] lg:h-[247px] lg:px-0 lg:py-0">
           <div className="w-full lg:w-176.5 h-auto lg:h-41.25 flex flex-col items-start gap-2.5">
             <div className="w-full flex flex-col justify-center items-start">
               <span className="w-full font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
@@ -74,7 +74,7 @@ const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
 
             <Link
               href="/planos"
-              className="flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-[#12141B] dark:bg-[#F1F2F4] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px] group"
+              className="flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-[#12141B] dark:bg-[#F1F2F4] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px] transition-colors hover:bg-[#9E372A] hover:border-[#9E372A] dark:hover:bg-[#9E372A] dark:hover:border-[#9E372A] group"
             >
               <span className="font-sans font-medium text-[14px] leading-5 text-center text-white dark:text-[#12141B]">
                 Veja nosso plano
@@ -86,7 +86,7 @@ const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
           </div>
         </div>
 
-        <div className="h-auto lg:h-61.5 py-12 lg:py-0 px-4 lg:px-0 w-full flex items-center justify-center bg-white dark:bg-[#0A0A0A] border-t-0 lg:border-t lg:border-l-[rgba(114,123,142,0.1)] dark:lg:border-l-[rgba(255,255,255,0.1)]">
+        <div className="flex h-auto w-full items-center justify-center bg-white px-4 py-12 dark:bg-[#0A0A0A] lg:h-[243px] lg:px-0 lg:py-0">
           <div className="w-full lg:w-176.5 h-auto lg:h-41.25 flex flex-col items-start gap-2.5">
             <div className="w-full flex flex-col justify-center items-start">
               <span className="w-full font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
@@ -105,7 +105,7 @@ const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
 
             <Link
               href="/orcamento"
-              className="flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-[#12141B] dark:bg-[#F1F2F4] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px] group"
+              className="flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-[#12141B] dark:bg-[#F1F2F4] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px] transition-colors hover:bg-[#9E372A] hover:border-[#9E372A] dark:hover:bg-[#9E372A] dark:hover:border-[#9E372A] group"
             >
               <span className="font-sans font-medium text-[14px] leading-5 text-center text-white dark:text-[#12141B]">
                 Faça um orçamento

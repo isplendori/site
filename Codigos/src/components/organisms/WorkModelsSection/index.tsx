@@ -1,14 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "@/components";
+import { ArrowUpRight, FloatingMessage } from "@/components";
 
 export interface WorkModelsSectionProps {
   className?: string;
 }
 
 const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
+  const [showFloatingMessage, setShowFloatingMessage] = useState(false);
+
   return (
     <section className={cn("flex flex-col lg:flex-row w-full h-auto lg:h-123 bg-white dark:bg-[#0A0A0A]", className)}>
       <div className="w-full lg:w-1/3 h-auto lg:h-full py-12 lg:py-0 px-4 lg:px-0 border-b lg:border-b-0 lg:border-r border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] flex items-center justify-center">
@@ -33,7 +36,9 @@ const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
 
           <Link
             href="/portfolio"
-            className="flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-white dark:bg-[#0A0A0A] border border-dashed border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] rounded-[200px] hover:border-[#9E372A] transition-colors group"
+            className="flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-white dark:bg-[#0A0A0A] border border-dashed border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] rounded-[200px] hover:border-[#9E372A] hover:bg-[#EADCDB] dark:hover:bg-[#2A1716] transition-colors group"
+            onMouseEnter={() => setShowFloatingMessage(true)}
+            onMouseLeave={() => setShowFloatingMessage(false)}
           >
             <span className="font-sans font-normal text-[14px] leading-5 text-center text-[#8E90A1] group-hover:text-[#9E372A] transition-colors">
               Conheça nosso portfólio
@@ -42,6 +47,10 @@ const WorkModelsSection = ({ className }: WorkModelsSectionProps) => {
               <ArrowUpRight stroke="#8E90A1" />
             </div>
           </Link>
+          <FloatingMessage
+            messages={["VEM VER DE PERTO."]}
+            isVisible={showFloatingMessage}
+          />
         </div>
       </div>
 

@@ -359,6 +359,23 @@ body {
   border-color: rgba(114, 123, 142, 0.12);
 }
 
+.inline-rotating-text {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 240ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.inline-rotating-text.is-swapping {
+  opacity: 0;
+  transform: translateY(-5px);
+  filter: blur(10px);
+}
+
 .process-step:hover .process-marker {
   border-color: #F1F2F4;
 }

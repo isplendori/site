@@ -30,6 +30,7 @@ const renderWords = (words: string[], accentWord?: string, baseDelay = 0) => {
 
 const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
   const [showFloatingMessage, setShowFloatingMessage] = useState(false);
+  const [showPortfolioMessage, setShowPortfolioMessage] = useState(false);
 
   return (
     <section
@@ -78,8 +79,10 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-1 h-auto sm:h-9 mt-4 sm:mt-0">
             <Link
               href="/portfolio"
-              className="hero-support-reveal flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-white dark:bg-[#0A0A0A] border border-dashed border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] rounded-[200px] hover:border-[#9E372A] transition-colors group"
+              className="hero-support-reveal flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-white dark:bg-[#0A0A0A] border border-dashed border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] rounded-[200px] hover:border-[#9E372A] hover:bg-[#EADCDB] dark:hover:bg-[#2A1716] transition-colors group"
               style={{ animationDelay: "1350ms" }}
+              onMouseEnter={() => setShowPortfolioMessage(true)}
+              onMouseLeave={() => setShowPortfolioMessage(false)}
             >
               <span className="font-sans text-[14px] leading-5 text-center text-[#8E90A1] group-hover:text-[#9E372A] transition-colors">
                 Conheça nosso portfólio
@@ -104,6 +107,10 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
         <FloatingMessage
           messages={["Sem reunião de 3 horas."]}
           isVisible={showFloatingMessage}
+        />
+        <FloatingMessage
+          messages={["VEM VER DE PERTO."]}
+          isVisible={showPortfolioMessage}
         />
       </div>
     </section>

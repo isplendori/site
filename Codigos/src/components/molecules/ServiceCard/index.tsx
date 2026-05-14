@@ -13,12 +13,12 @@ const ServiceCard = ({ title, description, className }: ServiceCardProps) => {
   return (
     <div
       className={cn(
-        "box-border flex flex-row justify-center items-center p-[8px_16px] gap-2.5 h-48.75 bg-white dark:bg-[#0A0A0A] border-dashed border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)]",
+        "box-border flex flex-row justify-center items-center p-[8px_16px] gap-2.5 h-48.75 bg-white dark:bg-[#0A0A0A] border-dashed border-[#F1F2F4]",
         className
       )}
     >
       <div className="flex flex-col items-start p-0 gap-4.5 w-65.5 h-31">
-        <div className="box-border flex flex-row justify-center items-center p-0 gap-2.5 w-11 h-11 bg-white dark:bg-[#0A0A0A] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-sm">
+        <div className="box-border flex flex-row justify-center items-center p-0 gap-2.5 w-11 h-11 bg-white dark:bg-[#0A0A0A] border border-[#F1F2F4] rounded-sm">
           <Star width={18} height={18} color="#1A1A20" />
         </div>
 
@@ -36,4 +36,3 @@ const ServiceCard = ({ title, description, className }: ServiceCardProps) => {
 };
 
 export default ServiceCard;
-

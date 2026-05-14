@@ -112,7 +112,7 @@ const WordmarkSection = ({
                   "flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 rounded-[200px] transition-colors group",
                   buttonVariant === "primary"
                     ? "bg-[#9E372A] border border-[#9E372A] hover:bg-[#7d2a20]"
-                    : "bg-white dark:bg-[#0A0A0A] border border-dashed border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] hover:border-[#9E372A]"
+                    : "bg-white dark:bg-[#0A0A0A] border border-dashed border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] hover:border-[#9E372A] hover:bg-[#EADCDB] dark:hover:bg-[#2A1716]"
                 )}
                 {...showFloatingHandlers}
               >

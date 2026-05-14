@@ -22,17 +22,17 @@ const ServicesGridSection = ({ className }: ServicesGridSectionProps) => {
         <ServiceCard
           title="Identidade Visual"
           description={description}
-          className="w-101.5 border border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)]"
+          className="w-101.5 border border-[#F1F2F4] border-l-0"
         />
         <ServiceCard
           title="UI/UX"
           description={description}
-          className="w-101.25 border-y border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] border-x-0"
+          className="w-101.25 border-y border-[#F1F2F4] border-x-0"
         />
         <ServiceCard
           title="Social Media"
           description={description}
-          className="w-101.25 border border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)]"
+          className="w-101.25 border border-[#F1F2F4] border-r-0"
         />
       </div>
 
@@ -40,17 +40,17 @@ const ServicesGridSection = ({ className }: ServicesGridSectionProps) => {
         <ServiceCard
           title="Sites"
           description={description}
-          className="w-101.5 border border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] border-t-0"
+          className="w-101.5 border border-[#F1F2F4] border-l-0 border-t-0"
         />
         <ServiceCard
           title="Desenvolvimento Web"
           description={description}
-          className="w-101.25 border-b border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] border-x-0 border-t-0"
+          className="w-101.25 border-b border-[#F1F2F4] border-x-0 border-t-0"
         />
         <ServiceCard
           title="Tráfego Pago"
           description={description}
-          className="w-101.25 border border-[rgba(114,123,142,0.28)] dark:border-[rgba(255,255,255,0.2)] border-t-0"
+          className="w-101.25 border border-[#F1F2F4] border-r-0 border-t-0"
         />
       </div>
     </section>
@@ -58,4 +58,3 @@ const ServicesGridSection = ({ className }: ServicesGridSectionProps) => {
 };
 
 export default ServicesGridSection;
-

@@ -256,6 +256,147 @@ body {
   animation: annaProblemGhost 980ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.process-timeline .process-step {
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(10px);
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--process-delay, 0ms),
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--process-delay, 0ms),
+    filter 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--process-delay, 0ms),
+    background-color 340ms ease,
+    border-color 340ms ease;
+}
+
+.process-timeline.is-revealed .process-step {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.process-step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4.75rem;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+  background: #F1F2F4;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.process-step[data-step="0"]::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(241, 242, 244, 0.2) 16%,
+    #F1F2F4 100%
+  );
+}
+
+.process-step[data-step="2"]::before {
+  background: linear-gradient(
+    90deg,
+    #F1F2F4 0%,
+    rgba(241, 242, 244, 0.2) 84%,
+    transparent 100%
+  );
+}
+
+.dark .process-step::before {
+  background: #F1F2F4;
+}
+
+.dark .process-step[data-step="0"]::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(241, 242, 244, 0.2) 14%,
+    #F1F2F4 100%
+  );
+}
+
+.dark .process-step[data-step="2"]::before {
+  background: linear-gradient(
+    90deg,
+    #F1F2F4 0%,
+    rgba(241, 242, 244, 0.2) 86%,
+    transparent 100%
+  );
+}
+
+.process-timeline.is-revealed .process-step::before {
+  animation: processRailDraw 950ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--process-delay, 0ms);
+}
+
+.process-rail-fill {
+  transform: scaleX(0);
+}
+
+.process-timeline.is-revealed .process-rail-fill {
+  animation: processRailDraw 1200ms cubic-bezier(0.16, 1, 0.3, 1) 120ms forwards;
+}
+
+.process-marker,
+.process-eyebrow {
+  transition: color 360ms ease, border-color 360ms ease, box-shadow 360ms ease;
+}
+
+.process-timeline.is-revealed .process-marker {
+  border-color: #F1F2F4;
+  box-shadow: none;
+}
+
+.process-timeline.is-revealed .process-eyebrow {
+  color: #9E372A;
+}
+
+.process-step:hover {
+  background-color: rgba(18, 20, 27, 0.018);
+  border-color: rgba(114, 123, 142, 0.12);
+}
+
+.process-step:hover .process-marker {
+  border-color: #F1F2F4;
+}
+
+.dark .process-step:hover {
+  background-color: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes processRailDraw {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-timeline .process-step,
+  .process-timeline.is-revealed .process-step::before,
+  .process-timeline.is-revealed .process-rail-fill {
+    animation: none;
+    transition: none;
+  }
+
+  .process-timeline .process-step {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .process-rail-fill {
+    transform: scaleX(1);
+  }
+
+  .process-step::before {
+    transform: scaleX(1);
+  }
+}
+
 @keyframes annaProblemGhost {
   0% {
     opacity: 0;

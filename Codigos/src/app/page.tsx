@@ -23,12 +23,27 @@ export default function Home() {
           </svg>
           <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute bottom-[-36px] left-7 reveal-element animate-star-green" />
         </div>
-        <WordmarkSection className="!border-t-0" />
-        <WordmarkSection className="!border-t-0" reverse />
-        <SolutionSection />
+        <WordmarkSection className="[&>div:nth-child(2)]:border-r-0" />
+        <WordmarkSection
+          className="!border-t-0 [&>div:first-child]:border-l [&>div:first-child]:border-[rgba(114,123,142,0.1)] dark:[&>div:first-child]:border-[rgba(255,255,255,0.1)] [&>div:nth-child(2)]:border-b-0 [&>div:nth-child(2)]:border-l-0 [&>div:nth-child(2)]:border-r-0"
+          badge="A SOLUÇÃO"
+          title={
+            <>
+              <span className="block">Nós pensamos por você</span>
+              <span className="block">
+                e você começa a <span className="italic text-[#9E372A]">crescer</span>.
+              </span>
+            </>
+          }
+          description="Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega encaixada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério."
+          buttonText="Veja nossos projetos"
+          buttonHref="/portfolio/projetos"
+          reverse
+        />
         <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="100%" height="100%" fill="url(#pattern0_10043_511)" fillOpacity="0.22" />
+            <line x1="0" y1="99.5" x2="1216" y2="99.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
             <defs>
               <pattern id="pattern0_10043_511" patternUnits="userSpaceOnUse" patternTransform="matrix(844.833 0 0 558.493 0 0)" preserveAspectRatio="none" viewBox="0 0 844.833 558.493" width="1" height="1">
                 <use xlinkHref="#pattern0_10043_511_inner" transform="translate(-844.833 0)" />

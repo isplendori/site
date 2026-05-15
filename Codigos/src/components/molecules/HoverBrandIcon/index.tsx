@@ -39,7 +39,7 @@ const HoverBrandIcon = ({
 
   return (
     <div className={cn("flex items-center justify-center select-none", className)}>
-      <IconComponent fillColor={fillColor} fillOpacity={fillOpacity} className="size-5" />
+      <IconComponent width={20} height={20} fillColor={fillColor} fillOpacity={fillOpacity} className="size-5 shrink-0" />
     </div>
   );
 };

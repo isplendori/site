@@ -11,8 +11,14 @@ export const iconComponents: IconComponent[] = [
 ];
 
 export const topRowIcons: IconComponent[] = Array(12).fill(BrandIcon1);
-export const sideGridIcons: IconComponent[] = [
+export const leftSideGridIcons: IconComponent[] = [
   BrandIcon1, BrandIcon1, BrandIcon1,
   BrandIcon6, BrandIcon3, BrandIcon2,
+  BrandIcon4, BrandIcon4, BrandIcon4
+];
+
+export const rightSideGridIcons: IconComponent[] = [
+  BrandIcon1, BrandIcon1, BrandIcon1,
+  BrandIcon6, BrandIcon2, BrandIcon3,
   BrandIcon4, BrandIcon4, BrandIcon4
 ];

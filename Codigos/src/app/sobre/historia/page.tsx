@@ -54,9 +54,9 @@ export default function HistoriaPage() {
 
         <WordmarkSection
           badge="HISTÓRIA"
-          buttonText=""
+          buttonText="Saiba quem está conosco"
           buttonHref="/equipe"
-          buttonVariant="primary"
+          buttonVariant="outline"
           floatingMessages={['Conheça a equipe']}
           title={<span className="block">História</span>}
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -65,6 +65,7 @@ export default function HistoriaPage() {
         <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="100%" height="100%" fill="url(#pattern0_10043_511)" fillOpacity="0.22" />
+            <line x1="0" y1="99.5" x2="1216" y2="99.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
             <defs>
               <pattern id="pattern0_10043_511" patternUnits="userSpaceOnUse" patternTransform="matrix(844.833 0 0 558.493 0 0)" preserveAspectRatio="none" viewBox="0 0 844.833 558.493" width="1" height="1">
                 <use xlinkHref="#pattern0_10043_511_inner" transform="translate(-844.833 0)" />
@@ -84,8 +85,10 @@ export default function HistoriaPage() {
         <TeamSection members={teamMembers} />
 
         <div className="mt-50 w-full">
-          <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
+          <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="1216" height="100" fill="url(#pattern0_8010_22182)" fillOpacity="0.59" />
+            <line x1="0" y1="0.5" x2="1216" y2="0.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
+            <line x1="0" y1="99.5" x2="1216" y2="99.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
             <defs>
               <pattern id="pattern0_8010_22182" patternContentUnits="objectBoundingBox" width="0.00986842" height="0.12">
                 <use xlinkHref="#image0_8010_22182" transform="scale(0.000822368 0.01)" />

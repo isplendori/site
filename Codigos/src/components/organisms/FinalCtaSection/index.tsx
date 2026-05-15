@@ -15,6 +15,7 @@ export interface FinalCtaSectionProps {
   description?: string;
   buttonText?: string;
   buttonHref?: string;
+  buttonExternal?: boolean;
   floatingMessages?: string[];
 }
 
@@ -37,6 +38,7 @@ const FinalCtaSection = ({
   description = defaultDescription,
   buttonText = "Fazer diagnóstico",
   buttonHref = "/diagnostico",
+  buttonExternal = false,
   floatingMessages = ["NÃO VAI DOER. PROMETEMOS."],
 }: FinalCtaSectionProps) => {
   const [showFloatingMessage, setShowFloatingMessage] = useState(false);
@@ -63,6 +65,8 @@ const FinalCtaSection = ({
 
         <Link
           href={buttonHref}
+          target={buttonExternal ? "_blank" : undefined}
+          rel={buttonExternal ? "noopener noreferrer" : undefined}
           className="flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-[#12141B] dark:bg-[#F1F2F4] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px] hover:bg-[#9E372A] transition-colors group reveal-element delay-[600ms]"
           onMouseEnter={hasFloating ? () => setShowFloatingMessage(true) : undefined}
           onMouseLeave={hasFloating ? () => setShowFloatingMessage(false) : undefined}

@@ -145,8 +145,8 @@ const GrowthChartSection = ({
   return (
     <section className={cn("growth-chart-section w-full bg-white dark:bg-[#0A0A0A]", className)}>
       <div className="mx-auto w-full max-w-304 bg-white dark:bg-[#0A0A0A]">
-        <div className="relative h-[543px] w-full overflow-hidden py-3.5">
-          <div className="absolute inset-x-0 top-3.5 h-[515px]">
+        <div className="relative h-[300px] w-full overflow-hidden py-3.5 sm:h-[400px] lg:h-[543px]">
+          <div className="absolute inset-x-0 top-3.5 h-[272px] sm:h-[372px] lg:h-[515px]">
             <svg
               className="absolute inset-0 size-full"
               viewBox="0 0 1216 515"
@@ -202,12 +202,12 @@ const GrowthChartSection = ({
           </div>
         </div>
 
-        <div className="relative h-40 w-full border-t border-[rgba(114,123,142,0.1)] bg-white dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A]">
-          <div className="absolute left-3 top-12 flex w-[1192px] items-start justify-center gap-8 overflow-hidden">
+        <div className="relative w-full border-t border-[rgba(114,123,142,0.1)] bg-white py-8 dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] lg:h-40 lg:py-0">
+          <div className="grid w-full grid-cols-2 gap-y-8 px-6 sm:grid-cols-4 lg:absolute lg:left-3 lg:top-12 lg:flex lg:w-[1192px] lg:items-start lg:justify-center lg:gap-8 lg:overflow-hidden lg:px-0">
             {stats.map((stat, index) => (
               <div
                 key={stat.value}
-                className="growth-stat flex w-[241px] flex-col items-center justify-center gap-2"
+                className="growth-stat flex w-full flex-col items-center justify-center gap-2 lg:w-[241px]"
                 style={{ animationDelay: `${420 + index * 120}ms` }}
               >
                 <div

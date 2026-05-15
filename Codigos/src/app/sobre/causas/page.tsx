@@ -27,6 +27,33 @@ const ongs = [
   { name: "Instituto Baccarelli", role: "ARTES", floatingMessages: ["MÚSICA QUE LIBERTA"] },
 ];
 
+const ongHrefs = [
+  "https://www.instagram.com/oncocao/",
+  "https://www.adoteumgatinho.org.br/",
+  "https://www.sosavesecia.org.br/",
+  "https://www.caosemdono.com.br/",
+  "https://www.b2mamy.com.br/",
+  "https://capacitransrj.com.br/",
+  "https://www.programaria.org/",
+  "https://institutodonadesi.com.br/",
+  "https://ileaiyeoficial.com/",
+  "https://fundoagbara.org.br/",
+  "https://www.atuco.com.br/",
+  "https://www.ongsbrasil.com.br/default.asp?CodigoInstituicao=21274&Pag=2",
+  "https://reprograma.com.br/",
+  "https://museudapessoa.org/",
+  "https://www.institutoprincipia.org/",
+  "https://baccarelli.org.br/",
+];
+
+const ongsWithLinks = ongs.map((ong, index) => ({
+  ...ong,
+  floatingMessages: [],
+  href: ongHrefs[index],
+  external: true,
+  enableModal: false,
+}));
+
 export default function CausasPage() {
   return (
     <MainLayout>
@@ -59,7 +86,7 @@ export default function CausasPage() {
         <TeamGridSection
           badge="ONGS"
           title={<span className="block italic">Conheça um pouco</span>}
-          members={ongs}
+          members={ongsWithLinks}
           columns={4}
           height={1100}
         />

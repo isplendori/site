@@ -66,28 +66,28 @@ const WordmarkSection = ({
   return (
     <section
       className={cn(
-        "flex flex-row items-center p-0 w-full h-126.5 border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] bg-white dark:bg-[#0A0A0A]",
+        "flex w-full flex-col items-stretch border-y border-[rgba(114,123,142,0.1)] bg-white dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] md:h-126.5 md:flex-row md:items-center",
         hideWordmark && "justify-center",
-        reverse && "flex-row-reverse",
+        reverse && "md:flex-row-reverse",
         className
       )}
       {...(!hasButton ? showFloatingHandlers : {})}
     >
       <div
         className={cn(
-          "box-border flex flex-col justify-center p-0 gap-2.5 h-full",
+          "box-border flex flex-col justify-center gap-2.5 p-6 md:h-full md:p-0",
           hideWordmark
-            ? "items-center w-full px-13.5"
-            : "items-start w-1/2 px-13.5"
+            ? "items-center w-full md:px-13.5"
+            : "items-start w-full md:w-1/2 md:px-13.5"
         )}
       >
         <div
           className={cn(
             "flex flex-col p-0 gap-3.5",
-            hideWordmark ? "items-start w-132.75 max-w-full" : "items-start w-108.75"
+            hideWordmark ? "items-start w-full max-w-132.75" : "items-start w-full md:w-108.75"
           )}
         >
-          <div className="flex flex-col items-start p-0 w-108.75">
+          <div className="flex w-full flex-col items-start p-0 md:w-108.75">
             <span className={cn(
               "font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] reveal-element",
               isProblemBadge && "anna-problem-kicker"
@@ -95,7 +95,7 @@ const WordmarkSection = ({
               {badge}
             </span>
 
-            <h2 className="font-instrument-serif font-light text-[36px] leading-10.75 text-[#434A57] reveal-element delay-[200ms]">
+            <h2 className="font-instrument-serif text-[32px] font-light leading-[36px] text-[#434A57] reveal-element delay-[200ms] md:text-[36px] md:leading-10.75">
               {title}
             </h2>
           </div>
@@ -139,10 +139,10 @@ const WordmarkSection = ({
 
       {!hideWordmark && (
         <div className={cn(
-          "box-border flex flex-col justify-end items-center p-0 gap-2.5 w-1/2 h-full bg-white dark:bg-[#0A0A0A] border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] overflow-hidden relative",
+          "relative box-border flex h-36 w-full flex-col items-center justify-end gap-2.5 overflow-hidden border-b border-[rgba(114,123,142,0.1)] bg-white p-0 dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] md:h-full md:w-1/2",
           reverse ? "border-l" : "border-l border-r"
         )}>
-          <div className={cn("font-new-icon-serif font-normal text-[180px] leading-17.5 flex items-center text-center tracking-[-7px] text-[rgba(50,55,81,0.1)] select-none mr-2.5 ", wordmarkClassName)}>
+          <div className={cn("mr-2.5 flex select-none items-center text-center font-new-icon-serif text-[96px] font-normal leading-[60px] tracking-0 text-[rgba(50,55,81,0.1)] md:text-[180px] md:leading-17.5 ", wordmarkClassName)}>
             {wordmark}
           </div>
         </div>

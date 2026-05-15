@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { BrandDivider, GrowthChartSection, HeroSection, MainLayout, MethodStepsSection, SolutionSection, WordmarkSection } from "@/components";
+import { BrandDivider, FinalCtaSection, GrowthChartSection, HeroSection, MainLayout, MethodStepsSection, SolutionSection, WordmarkSection } from "@/components";
 import { defaultBrands } from "@/app/page.data";
 import { getImage } from "@/assets/images";
 
@@ -75,6 +75,8 @@ export default function MetodoPage() {
         <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="100%" height="100%" fill="url(#pattern0_10043_511)" fillOpacity="0.22" />
+            <line x1="0" y1="0.5" x2="1216" y2="0.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
+            <line x1="0" y1="99.5" x2="1216" y2="99.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
             <defs>
               <pattern id="pattern0_10043_511" patternUnits="userSpaceOnUse" patternTransform="matrix(844.833 0 0 558.493 0 0)" preserveAspectRatio="none" viewBox="0 0 844.833 558.493" width="1" height="1">
                 <use xlinkHref="#pattern0_10043_511_inner" transform="translate(-844.833 0)" />
@@ -114,9 +116,10 @@ export default function MetodoPage() {
 
         <GrowthChartSection />
         
-        <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
+        <div className="flex flex-col items-center justify-center w-full h-full relative">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="100%" height="100%" fill="url(#pattern0_10043_511)" fillOpacity="0.22" />
+            <line x1="0" y1="99.5" x2="1216" y2="99.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
             <defs>
               <pattern id="pattern0_10043_511" patternUnits="userSpaceOnUse" patternTransform="matrix(844.833 0 0 558.493 0 0)" preserveAspectRatio="none" viewBox="0 0 844.833 558.493" width="1" height="1">
                 <use xlinkHref="#pattern0_10043_511_inner" transform="translate(-844.833 0)" />
@@ -132,6 +135,24 @@ export default function MetodoPage() {
             </defs>
           </svg>
         </div>
+
+        <FinalCtaSection
+          badge="PRONTO PARA COMEÇAR?"
+          title={
+            <>
+              <span className="block">Vamos pensar sua marca</span>
+              <span className="block">
+                com <span className="italic text-[#9E372A]">método</span>.
+              </span>
+            </>
+          }
+          description="Uma conversa direta para entender o que trava sua presença hoje e qual direção faz sentido antes da próxima entrega."
+          buttonText="Falar com a Splendori"
+          buttonHref="https://wa.me/5511999999999"
+          buttonExternal
+          className="border-t border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]"
+          floatingMessages={[]}
+        />
       </div>
     </MainLayout>
   );

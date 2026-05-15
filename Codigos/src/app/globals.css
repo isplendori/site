@@ -61,6 +61,7 @@ body {
   background: var(--background);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   cursor: url('/icons/cursor.png'), auto;
+  overflow-x: hidden;
 }
 
 * {
@@ -206,6 +207,62 @@ body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+.portfolio-hero-carousel-track {
+  animation: portfolioHeroCarousel 78s linear infinite;
+}
+
+.portfolio-hero-carousel:hover .portfolio-hero-carousel-track {
+  animation-play-state: paused;
+}
+
+.portfolio-gallery-track {
+  animation: portfolioGallerySlide 42s linear infinite;
+}
+
+.portfolio-gallery-track:hover {
+  animation-play-state: paused;
+}
+
+.portfolio-hero-checker {
+  background-color: #fafafa;
+  background-image:
+    linear-gradient(45deg, rgba(114, 123, 142, 0.035) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(114, 123, 142, 0.035) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(114, 123, 142, 0.035) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(114, 123, 142, 0.035) 75%);
+  background-position: 0 0, 0 24px, 24px -24px, -24px 0;
+  background-size: 48px 48px;
+}
+
+@keyframes portfolioHeroCarousel {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 5px));
+  }
+}
+
+.dark .portfolio-hero-checker {
+  background-color: #101116;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.035) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.035) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.035) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.035) 75%);
+}
+
+@keyframes portfolioGallerySlide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 8px));
+  }
 }
 
 .animate-dropdown-in {
@@ -470,6 +527,48 @@ body {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+.animate-profile-overlay {
+  animation: profileOverlayIn 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-profile-modal {
+  animation: profileModalIn 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform, filter;
+}
+
+@keyframes profileOverlayIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+  }
+}
+
+@keyframes profileModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-profile-overlay,
+  .animate-profile-modal {
+    animation: none;
   }
 }
 

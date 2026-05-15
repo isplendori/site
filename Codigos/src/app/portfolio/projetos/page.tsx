@@ -1,25 +1,18 @@
 import type { Metadata } from "next";
 
 import { defaultBrands } from "@/app/page.data";
-import { projectsData } from "@/app/projetos.data";
 import {
   BrandDivider,
   FinalCtaSection,
   HeroSection,
   MainLayout,
-  ProjectGridSection,
 } from "@/components";
+import PortfolioProjectsShowcase from "./PortfolioProjectsShowcase";
 
 export const metadata: Metadata = {
   title: "Projetos — Splendori",
   description: "Trabalhos comerciais, marcas, sites e campanhas.",
 };
-
-const projects = projectsData.map((project) => ({
-  title: project.title,
-  category: project.category,
-  href: `/portfolio/projetos/${project.slug}`,
-}));
 
 export default function ProjetosPage() {
   return (
@@ -40,7 +33,7 @@ export default function ProjetosPage() {
           </svg>
         </div>
 
-        <ProjectGridSection projects={projects} />
+        <PortfolioProjectsShowcase />
 
         <div className="w-full">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">

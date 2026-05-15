@@ -33,6 +33,87 @@ const team = [
   { name: "Cheetah", role: "PARCEIROS", floatingMessages: ["PARCEIRO DE PESO"] },
 ];
 
+const gmailComposeHref =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=anna@splendori.com.br";
+
+const profileDetails: Record<
+  string,
+  { description: string; specialties: string[] }
+> = {
+  Anna: {
+    description:
+      "Conduz a direção criativa e estratégica da Splendori, transformando intenção de marca em presença, ritmo e consistência visual.",
+    specialties: ["Direção criativa", "Estratégia de marca", "Design editorial"],
+  },
+  Edson: {
+    description:
+      "Cuida da arquitetura técnica e da segurança das entregas digitais, mantendo cada projeto estável, escalável e bem executado.",
+    specialties: ["Arquitetura web", "Back-end", "Segurança de dados"],
+  },
+  Chuck: {
+    description:
+      "Acompanha as decisões de negócio e posicionamento, conectando visão, operação e oportunidades para cada projeto ganhar tração.",
+    specialties: ["Estratégia", "Operação", "Crescimento"],
+  },
+  Sarah: {
+    description:
+      "Traz leitura sensível para linguagem, estética e experiência, ajudando marcas a encontrarem uma expressão mais clara e memorável.",
+    specialties: ["Conceito visual", "Narrativa", "Experiência de marca"],
+  },
+  Jonathan: {
+    description:
+      "Organiza a voz da marca nos canais certos, cuidando de presença, intenção comercial e leitura de público.",
+    specialties: ["Marketing", "Conteúdo", "Posicionamento"],
+  },
+  Jarilson: {
+    description:
+      "Transforma direção visual em interface, com atenção a responsividade, microinterações e acabamento de front-end.",
+    specialties: ["Front-end", "UI motion", "Next.js"],
+  },
+  Matheus: {
+    description:
+      "Estrutura integrações, serviços e dados para que a experiência visual tenha uma base técnica confiável.",
+    specialties: ["APIs", "Banco de dados", "Integrações"],
+  },
+  Vendas: {
+    description:
+      "Faz a ponte entre necessidade, proposta e próximo passo, garantindo clareza antes de qualquer entrega começar.",
+    specialties: ["Atendimento", "Propostas", "Relacionamento"],
+  },
+  Outframe: {
+    description:
+      "Parceiro de produção e execução criativa em projetos que pedem mais escala, repertório visual e colaboração.",
+    specialties: ["Produção", "Design", "Parceria criativa"],
+  },
+  Cheetah: {
+    description:
+      "Parceiro estratégico para demandas especiais, atuando junto ao time em entregas que precisam de velocidade e precisão.",
+    specialties: ["Execução", "Suporte", "Projetos especiais"],
+  },
+};
+
+const foundersWithProfiles = founders.map((member) => ({
+  ...member,
+  floatingMessages: member.name === "Sarah" ? member.floatingMessages : [],
+  ...profileDetails[member.name],
+}));
+
+const teamWithProfiles = team
+  .filter(
+    (member) => !(member.name.startsWith("Jo") && member.role.includes("DESIGN"))
+  )
+  .map((member) => {
+    const name = member.name === "Raphael" ? "Vendas" : member.name;
+
+    return {
+      ...member,
+      name,
+      role: member.name === "Raphael" ? "COMERCIAL" : member.role,
+      floatingMessages: [],
+      ...profileDetails[name],
+    };
+  });
+
 export default function EquipePage() {
   return (
     <MainLayout>
@@ -83,7 +164,7 @@ export default function EquipePage() {
 
         <TeamGridSection
           title="Fundadores"
-          members={founders}
+          members={foundersWithProfiles}
           borderBottom={false}
         />
 
@@ -101,11 +182,12 @@ export default function EquipePage() {
 
         <TeamGridSection
           title="Equipe"
-          members={team}
+          members={teamWithProfiles}
           emptyCard={{
             title: "Quer fazer parte?",
             subtitle: "ENTRE EM CONTATO",
-            href: "/contato",
+            href: gmailComposeHref,
+            external: true,
             floatingMessages: ["VEM PRO TIME"],
           }}
           height={696}
@@ -135,7 +217,8 @@ export default function EquipePage() {
           }
           description="Uma conversa. Sem compromisso, sem 40 slides, sem mil propostas, sem enrolação. A gente entende o seu negócio e mostra onde está a oportunidade."
           buttonText="Envie seu currículo e portfólio"
-          buttonHref="/carreiras"
+          buttonHref={gmailComposeHref}
+          buttonExternal
           floatingMessages={[]}
         />
       </div>

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-
-import { getProjectBySlug, getAllProjectSlugs } from "@/app/projetos.data";
-import PortfolioPresentationPage from "@/app/portfolio/PortfolioPresentationPage";
-import { MainLayout } from "@/components";
 import Link from "next/link";
 
-interface ProjectPageProps {
+import {
+  getAllAutoralSlugs,
+  getAutoralBySlug,
+} from "@/app/autorais.data";
+import PortfolioPresentationPage from "@/app/portfolio/PortfolioPresentationPage";
+import { MainLayout } from "@/components";
+
+interface AutoralPageProps {
   params: Promise<{
     slug: string | string[];
   }>;
@@ -15,32 +18,32 @@ function resolveSlug(slug: string | string[]) {
   return Array.isArray(slug) ? slug.join("/") : slug;
 }
 
-function getNextProjectHref(slug: string) {
-  const slugs = getAllProjectSlugs();
+function getNextAutoralHref(slug: string) {
+  const slugs = getAllAutoralSlugs();
   const currentIndex = slugs.indexOf(slug);
   const nextSlug = slugs[(currentIndex + 1) % slugs.length] ?? slugs[0];
 
-  return `/portfolio/projetos/${nextSlug}`;
+  return `/portfolio/autorais/${nextSlug}`;
 }
 
-function getPreviousProjectHref(slug: string) {
-  const slugs = getAllProjectSlugs();
+function getPreviousAutoralHref(slug: string) {
+  const slugs = getAllAutoralSlugs();
   const currentIndex = slugs.indexOf(slug);
   const previousSlug =
     slugs[(currentIndex - 1 + slugs.length) % slugs.length] ?? slugs[0];
 
-  return `/portfolio/projetos/${previousSlug}`;
+  return `/portfolio/autorais/${previousSlug}`;
 }
 
 export async function generateMetadata({
   params,
-}: ProjectPageProps): Promise<Metadata> {
+}: AutoralPageProps): Promise<Metadata> {
   const resolvedParams = await params;
-  const project = getProjectBySlug(resolveSlug(resolvedParams.slug));
+  const project = getAutoralBySlug(resolveSlug(resolvedParams.slug));
 
   if (!project) {
     return {
-      title: "Projeto não encontrado",
+      title: "Autoral não encontrado",
     };
   }
 
@@ -51,28 +54,28 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return getAllProjectSlugs().map((slug) => ({
+  return getAllAutoralSlugs().map((slug) => ({
     slug,
   }));
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function AutoralProjectPage({ params }: AutoralPageProps) {
   const resolvedParams = await params;
   const slug = resolveSlug(resolvedParams.slug);
-  const project = getProjectBySlug(slug);
+  const project = getAutoralBySlug(slug);
 
   if (!project) {
     return (
       <MainLayout>
         <div className="mx-auto flex min-h-screen w-full max-w-304 flex-col items-center justify-center border-[rgba(114,123,142,0.1)] px-4 text-center dark:border-[rgba(255,255,255,0.1)] sm:border-x">
           <h1 className="font-instrument-serif text-[36px] font-light text-[#434A57]">
-            Projeto não encontrado
+            Autoral não encontrado
           </h1>
           <Link
-            href="/portfolio/projetos"
+            href="/portfolio/autorais"
             className="mt-4 font-sans text-[14px] text-[#8E90A1] hover:text-[#434A57]"
           >
-            Voltar para projetos
+            Voltar para autorais
           </Link>
         </div>
       </MainLayout>
@@ -82,11 +85,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <PortfolioPresentationPage
       project={project}
-      backHref="/portfolio/projetos"
-      backLabel="projetos"
-      previousHref={getPreviousProjectHref(slug)}
-      nextHref={getNextProjectHref(slug)}
-      collectionLabel="Projetos"
+      backHref="/portfolio/autorais"
+      backLabel="autorais"
+      previousHref={getPreviousAutoralHref(slug)}
+      nextHref={getNextAutoralHref(slug)}
+      collectionLabel="Autorais"
     />
   );
 }

@@ -8,13 +8,13 @@ const ContentCard = () => {
   const [showFloatingMessage, setShowFloatingMessage] = useState(false);
 
   return (
-    <div className="pointer-events-auto flex flex-1 min-h-75.75 flex-col items-center justify-center gap-3 border-r border-b border-[rgba(114,123,142,0.1)] bg-white py-8 px-4 backdrop-blur-[1px] dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A]/95 md:items-start md:py-0 md:px-24">
+    <div className="pointer-events-auto flex min-h-75.75 w-full flex-1 flex-col items-center justify-center gap-3 border-r border-b border-[rgba(114,123,142,0.1)] bg-white px-6 py-10 backdrop-blur-[1px] dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A]/95 md:items-start md:px-24 md:py-0">
       <div className="flex w-full max-w-[414px] flex-col items-center md:items-start text-center md:text-left gap-3">
         <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
           FERRAMENTAS
         </span>
 
-        <h2 className="font-instrument-serif font-light text-[36px] leading-[33px] text-[#434A57]">
+        <h2 className="font-instrument-serif text-[32px] font-light leading-[34px] text-[#434A57] md:text-[36px] md:leading-[33px]">
           <span className="block">Conheça as ferramentas</span>
           <span className="block">
             por trás de cada <span className="italic text-[#9E372A]">entrega</span>.

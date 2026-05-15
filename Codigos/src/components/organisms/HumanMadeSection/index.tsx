@@ -13,7 +13,7 @@ const HumanMadeSection = ({ className }: HumanMadeSectionProps) => {
 
   return (
     <section
-      className={cn("relative w-full h-50 mt-40", className)}
+      className={cn("relative w-full h-50 mt-25", className)}
       onMouseEnter={() => setShowFloatingMessage(true)}
       onMouseLeave={() => setShowFloatingMessage(false)}
     >

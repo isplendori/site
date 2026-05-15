@@ -74,13 +74,13 @@ export default function Home() {
             </defs>
           </svg>
         </div>
-        <section className="flex w-full min-h-73 items-start bg-white px-13.5 py-18 border-t border-[#F1F2F4] dark:bg-[#0A0A0A]">
-          <div className="flex w-108.75 flex-col items-start gap-3.5">
+        <section className="flex min-h-73 w-full items-start border-t border-[#F1F2F4] bg-white px-6 py-12 dark:bg-[#0A0A0A] md:px-13.5 md:py-18">
+          <div className="flex w-full max-w-108.75 flex-col items-start gap-3.5">
             <span className="reveal-element font-mono text-[12px] font-semibold leading-5.25 tracking-[0.09em] text-[#8E90A1] uppercase">
               ATUAÇÃO
             </span>
 
-            <h2 className="reveal-element delay-[200ms] font-instrument-serif text-[36px] font-light leading-9 text-[#434A57]">
+            <h2 className="reveal-element delay-[200ms] font-instrument-serif text-[32px] font-light leading-[34px] text-[#434A57] md:text-[36px] md:leading-9">
               <span className="block">Nós pensamos por você</span>
               <span className="block">
                 e você começa a <span className="italic text-[#9E372A]">crescer</span>.
@@ -128,15 +128,15 @@ export default function Home() {
             </defs>
           </svg>
         </div>
-        <div className="relative h-[236.5px] w-full bg-white dark:bg-[#0A0A0A]">
-          <div className="absolute inset-x-0 top-0 h-[200px] border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]" />
-          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute right-[26px] top-[163.5px] reveal-element animate-star-green" />
+        <div className="relative h-[160px] w-full bg-white dark:bg-[#0A0A0A] md:h-[236.5px]">
+          <div className="absolute inset-x-0 top-0 h-[124px] border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] md:h-[200px]" />
+          <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute right-[26px] top-[88px] reveal-element animate-star-green md:top-[163.5px]" />
         </div>
         <SolutionSection
           floatingMessages={['COMO TRABALHAMOS']} showFloatingMessage
         />
         <GrowthChartSection />
-        <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
+        <div className="relative mb-24 flex h-full w-full flex-col items-center justify-center md:mb-40">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="100%" height="100%" fill="url(#pattern0_10043_511)" fillOpacity="0.22" />
             <line x1="0" y1="0.5" x2="1216" y2="0.5" className="stroke-[rgba(114,123,142,0.1)] dark:stroke-[rgba(255,255,255,0.1)]" />
@@ -157,7 +157,7 @@ export default function Home() {
           </svg>
         </div>
         <WorkModelsSection />
-        <div className="relative mt-50 w-full">
+        <div className="relative mt-24 w-full md:mt-50">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
             <rect width="1216" height="100" fill="url(#pattern0_8010_22182)" fillOpacity="0.59" />
             <defs>
@@ -170,7 +170,7 @@ export default function Home() {
           <Image src={getIcon("star_green").src} alt="Fallback" width={50} height={73} className="absolute right-[26px] top-[-36px] reveal-element animate-star-green" />
         </div>
         <FaqSection />
-        <div className="mt-50 w-full">
+        <div className="mt-24 w-full md:mt-50">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="border-y border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
             <rect width="1216" height="100" fill="url(#pattern0_8010_22182)" fillOpacity="0.59" />
             <defs>

@@ -23,17 +23,17 @@ const SolutionSection = ({
   return (
     <section
       className={cn(
-        "flex h-[311px] w-full flex-row items-stretch bg-white dark:bg-[#0A0A0A]",
+        "flex w-full flex-row items-stretch bg-white py-12 dark:bg-[#0A0A0A] md:h-[311px] md:py-0",
         className
       )}
     >
-      <div className="flex w-full flex-col items-start justify-center px-13.5">
-        <div className="flex w-[429px] flex-col items-start gap-4">
+      <div className="flex w-full flex-col items-start justify-center px-6 md:px-13.5">
+        <div className="flex w-full max-w-[429px] flex-col items-start gap-4">
           <span className="anna-solution-kicker reveal-element font-mono text-[12px] font-semibold leading-[21px] tracking-[0.09em] text-[#8E90A1] uppercase">
             {badge}
           </span>
 
-          <h2 className="font-instrument-serif text-[36px] font-light leading-[32px] text-[#434A57]">
+          <h2 className="font-instrument-serif text-[32px] font-light leading-[34px] text-[#434A57] md:text-[36px] md:leading-[32px]">
             {title}
           </h2>
 

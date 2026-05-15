@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { autoraisData } from "@/app/autorais.data";
 import { defaultBrands } from "@/app/page.data";
 import {
   BrandDivider,
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
   description: "Estudos, experimentos e criações independentes.",
 };
 
-const projects = [
-  { title: "Nome do Projeto 1", category: "DESIGN" },
-  { title: "Nome do Projeto 2", category: "DESIGN" },
-  { title: "Nome do Projeto 3", category: "DESIGN" },
-  { title: "Nome do Projeto 4", category: "DESIGN" },
-  { title: "Nome do Projeto 5", category: "DESIGN" },
-  { title: "Nome do Projeto 6", category: "DESIGN" },
-];
+const projects = autoraisData.map((project) => ({
+  title: project.title,
+  category: project.category,
+  href: `/portfolio/autorais/${project.slug}`,
+}));
 
 export default function AutoraisPage() {
   return (

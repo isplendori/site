@@ -208,6 +208,68 @@ export const projectsData: ProjectDetails[] = [
     year: 2024,
     client: "Lumina Collective",
   },
+  {
+    id: "7",
+    slug: "projeto-7",
+    title: "Ativação Atlas",
+    category: "CAMPANHA",
+    description: "Criamos uma ativação visual para campanha pontual, com narrativa, peças digitais e sistema de assets para diferentes canais.",
+    coverImage: "/projects/cover-1.svg",
+    coverImageAlt: "Capa do Projeto Atlas",
+    content: {
+      sections: [
+        {
+          type: "text",
+          title: "Direção criativa",
+          text: "A entrega conectou conceito, ritmo visual e aplicações práticas para dar unidade à campanha sem perder flexibilidade entre formatos.",
+        },
+        {
+          type: "image",
+          image: "/projects/detail-1.svg",
+          imageAlt: "Detalhe da ativação Atlas",
+        },
+        {
+          type: "text",
+          title: "Resultado",
+          text: "O projeto ajudou a marca a lançar uma comunicação mais consistente, com materiais prontos para redes, apresentação e tráfego.",
+        },
+      ],
+    },
+    technologies: ["Campanha", "Direção criativa", "Assets digitais"],
+    year: 2024,
+    client: "Atlas Group",
+  },
+  {
+    id: "8",
+    slug: "projeto-8",
+    title: "Sistema Aurora",
+    category: "ESTRATÉGIA",
+    description: "Desenvolvemos um sistema visual e estratégico para organizar materiais comerciais, conteúdo e apresentações de marca.",
+    coverImage: "/projects/cover-2.svg",
+    coverImageAlt: "Capa do Projeto Aurora",
+    content: {
+      sections: [
+        {
+          type: "text",
+          title: "Sistema de comunicação",
+          text: "O trabalho estruturou mensagens, hierarquias e componentes visuais para tornar a comunicação da marca mais precisa e reutilizável.",
+        },
+        {
+          type: "image",
+          image: "/projects/detail-2.svg",
+          imageAlt: "Detalhe do sistema Aurora",
+        },
+        {
+          type: "text",
+          title: "Resultado",
+          text: "A marca passou a ter materiais mais consistentes, com melhor leitura comercial e uma base preparada para novas campanhas.",
+        },
+      ],
+    },
+    technologies: ["Estratégia", "Design editorial", "Sistema visual"],
+    year: 2024,
+    client: "Aurora Studio",
+  },
 ];
 
 export function getProjectBySlug(slug: string | string[] | undefined): ProjectDetails | undefined {

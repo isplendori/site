@@ -35,7 +35,7 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
   return (
     <section
       className={cn(
-        "hero-root relative flex w-full flex-col items-center justify-center py-16 md:min-h-[70vh] lg:min-h-[102vh]",
+        "hero-root relative flex w-full flex-col items-center justify-center px-4 py-20 md:px-0 md:min-h-[70vh] lg:min-h-[102vh]",
         className,
       )}
     >
@@ -43,8 +43,8 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
         <HeroArchitecture className="w-full max-w-302.5 h-auto" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-4.5 mt-[110px]">
-        <div className="hero-support-reveal flex flex-row justify-center items-center px-4 py-2 gap-2.5 h-9 bg-white dark:bg-[#0A0A0A] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px]" style={{ animationDelay: "180ms" }}>
+      <div className="relative z-10 mt-8 flex w-full flex-col items-center gap-4.5 md:mt-[110px]">
+        <div className="hero-support-reveal flex h-auto min-h-9 max-w-full flex-row justify-center items-center px-4 py-2 gap-2.5 bg-white dark:bg-[#0A0A0A] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px]" style={{ animationDelay: "180ms" }}>
           <Star />
           <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]  h-5.25 flex items-center">
             DESIGN. ESTRATÉGIA. TECNOLOGIA.
@@ -53,13 +53,13 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
 
         <div className="flex flex-col items-center gap-2">
           <h1
-            className="hero-copy-reveal font-instrument-serif font-light text-[44px] leading-11.25 text-center text-[#202026] dark:text-[#F1F2F4]"
+            className="hero-copy-reveal font-instrument-serif font-light text-[38px] leading-[40px] text-center text-[#202026] dark:text-[#F1F2F4] md:text-[44px] md:leading-11.25"
             aria-label="Não somos uma agência."
           >
             {renderWords(["Não", "somos", "uma", "agência."], undefined, 420)}
           </h1>
           <h2
-            className="hero-copy-reveal font-instrument-serif italic font-light text-[44px] leading-9.5 text-center text-[#202026] dark:text-[#F1F2F4]"
+            className="hero-copy-reveal font-instrument-serif italic font-light text-[38px] leading-[34px] text-center text-[#202026] dark:text-[#F1F2F4] md:text-[44px] md:leading-9.5"
             aria-label="Somos resultados."
           >
             {renderWords(["Somos", "resultados."], "resultados.", 780)}

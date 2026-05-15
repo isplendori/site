@@ -1,8 +1,10 @@
 import {
+  BrandDivider,
   FinalCtaSection,
   LinhasPattern,
   MainLayout,
 } from "@/components";
+import { defaultBrands } from "@/app/page.data";
 import PortfolioProjectHero from "./PortfolioProjectHero";
 
 export interface PortfolioPresentationProject {
@@ -55,44 +57,25 @@ const PortfolioPresentationPage = ({
           category={project.category}
         />
 
+        <BrandDivider brands={defaultBrands} />
+
         <div className="h-25 w-full border-b border-[rgba(114,123,142,0.1)]">
           <LinhasPattern className="h-full w-full" fillOpacity={0.5} />
         </div>
 
-        <section className="border-b border-[rgba(114,123,142,0.1)] px-6 py-16 dark:border-[rgba(255,255,255,0.1)] md:px-13.5 md:py-[88px]">
-          <div className="grid items-center gap-10 lg:grid-cols-[49%_51%]">
-            <div className="relative mx-auto w-full max-w-[536px] pb-16 sm:pb-20 lg:pb-0">
-              <div className="portfolio-hero-checker h-[420px] rounded-[12px] border border-[rgba(114,123,142,0.08)] md:h-[555px]" />
-              <div className="absolute bottom-0 left-5 right-5 rounded-[0_22px_0_0] border border-[rgba(114,123,142,0.08)] bg-white px-5 py-5 shadow-[0_18px_50px_rgba(18,20,27,0.04)] dark:bg-[#0D0E13] sm:left-10 sm:right-auto sm:w-[370px] lg:translate-y-1/2">
-                <div className="flex items-center gap-4">
-                  <div className="size-11 shrink-0 rounded-full bg-[#D9D9D9]" />
-                  <div>
-                    <p className="font-mono text-[11px] font-semibold uppercase leading-4 tracking-[0.14em] text-[#8E90A1]">
-                      {project.client ?? "Jonathan Locks"}
-                    </p>
-                    <p className="mt-1 font-sans text-[12px] leading-4 text-[#8E90A1]">
-                      Uma conversa. Sem compromisso, sem 40 slides, sem mil
-                      propostas, sem enrolacao. A gente entende o seu negocio e
-                      mostra.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:pl-4">
-              <div className="mb-5">
-                <p className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
-                  Motivacao
-                </p>
-                <h2 className="mt-1 font-instrument-serif text-[36px] font-light italic leading-[40px] text-[#434A57] dark:text-[#F1F2F4]">
-                  Nossa motivacao
-                </h2>
-              </div>
-              <p className="max-w-[510px] font-sans text-[14px] leading-5.5 text-[#8E90A1]">
-                {motivationText}
+        <section className="border-b border-[rgba(114,123,142,0.1)] px-6 py-20 dark:border-[rgba(255,255,255,0.1)] md:px-13.5 md:py-[132px]">
+          <div className="mx-auto max-w-[724px]">
+            <div className="mb-5">
+              <p className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+                MOTIVAÇÃO
               </p>
+              <h2 className="mt-1 font-instrument-serif text-[36px] font-light italic leading-[40px] text-[#434A57] dark:text-[#F1F2F4]">
+                Nossa motivação
+              </h2>
             </div>
+            <p className="font-sans text-[14px] leading-4.75 text-[#8E90A1]">
+              {motivationText}
+            </p>
           </div>
         </section>
 
@@ -101,17 +84,17 @@ const PortfolioPresentationPage = ({
         </div>
 
         <FinalCtaSection
-          badge="PRONTO PARA COMECAR?"
+          badge="PRONTO PARA COMEÇAR?"
           title={
             <>
-              <span className="block">Quer uma presenca</span>
+              <span className="block">Quer uma presença</span>
               <span className="block">
-                com mais <span className="italic text-[#9E372A]">direcao?</span>
+                com mais <span className="italic text-[#9E372A]">direção?</span>
               </span>
             </>
           }
-          description="Uma conversa objetiva para entender sua marca, identificar oportunidade e definir o proximo movimento com clareza."
-          buttonText="Fazer diagnostico"
+          description="Uma conversa objetiva para entender sua marca, identificar oportunidade e definir o próximo movimento com clareza."
+          buttonText="Fazer diagnóstico"
           buttonHref="/diagnostico"
         />
       </div>

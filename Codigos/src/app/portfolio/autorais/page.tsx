@@ -25,7 +25,7 @@ export default function AutoraisPage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection descriptionClassName="text-base" />
+        <HeroSection />
         <BrandDivider brands={defaultBrands} />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">

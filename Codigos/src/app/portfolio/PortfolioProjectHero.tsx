@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { BolinhasPattern } from "@/components";
 
@@ -10,6 +11,8 @@ interface PortfolioProjectHeroProps {
   category: string;
 }
 
+// TODO: remove after confirming no legacy references remain in nearby edits.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const projectAreas = [
   {
     label: "Identidade visual",
@@ -19,7 +22,7 @@ const projectAreas = [
       "Identidade Natura Forma",
       "Marca Canto Norte",
       "Rebrand Astra",
-      "Casa Vertice Visual",
+      "Casa Vértice Visual",
       "Vila Rara Branding",
       "Matriz Clara",
       "Ponto Lume",
@@ -30,17 +33,17 @@ const projectAreas = [
     matchers: ["social", "campanha", "estrategia"],
     projects: [
       "Soma Social",
-      "Lume Cafe Conteudo",
+      "Lume Café Conteúdo",
       "Trama Editorial",
       "Viva Norte Social",
       "Alba Skin",
       "Atlas Campanha",
-      "Solaris Conteudo",
+      "Solaris Conteúdo",
       "Axis Campaign",
     ],
   },
   {
-    label: "UI/UX",
+    label: "UI/UX Design",
     matchers: ["ui", "ux", "produto", "digital"],
     projects: [
       "Plataforma Neon",
@@ -51,6 +54,111 @@ const projectAreas = [
       "Interface Lumina",
       "Boreal Produto",
       "Atlas Digital",
+    ],
+  },
+  {
+    label: "Web design",
+    matchers: ["web", "site", "landing"],
+    projects: [
+      "Vento Labs",
+      "Linha Real",
+      "Prisma Web",
+      "Boreal Group",
+      "Mirante Studio",
+      "Atlas Website",
+      "Orbis Digital",
+      "Natura Forma Web",
+    ],
+  },
+  {
+    label: "Desenvolvimento",
+    matchers: ["desenvolvimento", "dev", "frontend", "backend"],
+    projects: [
+      "Corebase Build",
+      "Fluxo Alto Dev",
+      "Nexo App Build",
+      "Prisma Tech",
+      "Atlas Platform",
+      "Boreal System",
+      "Lumina Frontend",
+      "Vértice Backend",
+    ],
+  },
+  {
+    label: "+Mais",
+    matchers: ["mais", "especial"],
+    projects: [
+      "Aurora Studio",
+      "Mesa Onze",
+      "Forma Livre",
+      "Arquivo 22",
+      "Solaris Lab",
+      "Nadir Eventos",
+      "Clara Strategy",
+      "Axis Campaign",
+    ],
+  },
+];
+
+const portfolioSearchAreas = [
+  {
+    label: "Identidade visual",
+    matchers: ["identidade", "marca"],
+    projects: [
+      { title: "Sistema de Marca Orbis", href: "/portfolio/projetos/projeto-1" },
+      { title: "Rebrand Astra", href: "/portfolio/projetos/projeto-4" },
+      { title: "Sistema Aurora", href: "/portfolio/projetos/projeto-8" },
+      { title: "Ativação Atlas", href: "/portfolio/projetos/projeto-7" },
+    ],
+  },
+  {
+    label: "Social media",
+    matchers: ["social", "campanha", "estrategia"],
+    projects: [
+      { title: "Campanha Lançamento Vento", href: "/portfolio/projetos/projeto-2" },
+      { title: "Ativação Atlas", href: "/portfolio/projetos/projeto-7" },
+      { title: "Sistema Aurora", href: "/portfolio/projetos/projeto-8" },
+      { title: "Rebrand Astra", href: "/portfolio/projetos/projeto-4" },
+    ],
+  },
+  {
+    label: "UI/UX Design",
+    matchers: ["ui", "ux", "produto", "digital"],
+    projects: [
+      { title: "Plataforma Neon", href: "/portfolio/projetos/projeto-3" },
+      { title: "UX Flow Prisma", href: "/portfolio/projetos/projeto-5" },
+      { title: "Interface Lumina", href: "/portfolio/projetos/projeto-6" },
+      { title: "Sistema Aurora", href: "/portfolio/projetos/projeto-8" },
+    ],
+  },
+  {
+    label: "Web design",
+    matchers: ["web", "site", "landing"],
+    projects: [
+      { title: "Interface Lumina", href: "/portfolio/projetos/projeto-6" },
+      { title: "Campanha Lançamento Vento", href: "/portfolio/projetos/projeto-2" },
+      { title: "Plataforma Neon", href: "/portfolio/projetos/projeto-3" },
+      { title: "Sistema Aurora", href: "/portfolio/projetos/projeto-8" },
+    ],
+  },
+  {
+    label: "Desenvolvimento",
+    matchers: ["desenvolvimento", "dev", "frontend", "backend"],
+    projects: [
+      { title: "Plataforma Neon", href: "/portfolio/projetos/projeto-3" },
+      { title: "UX Flow Prisma", href: "/portfolio/projetos/projeto-5" },
+      { title: "Interface Lumina", href: "/portfolio/projetos/projeto-6" },
+      { title: "Sistema Aurora", href: "/portfolio/projetos/projeto-8" },
+    ],
+  },
+  {
+    label: "+Mais",
+    matchers: ["mais", "especial"],
+    projects: [
+      { title: "Sistema de Marca Orbis", href: "/portfolio/projetos/projeto-1" },
+      { title: "Campanha Lançamento Vento", href: "/portfolio/projetos/projeto-2" },
+      { title: "Ativação Atlas", href: "/portfolio/projetos/projeto-7" },
+      { title: "Sistema Aurora", href: "/portfolio/projetos/projeto-8" },
     ],
   },
 ];
@@ -84,7 +192,7 @@ const getInitialAreaIndex = (category: string) => {
   const normalizedCategory = normalizeText(category);
 
   return Math.max(
-    projectAreas.findIndex((area) =>
+    portfolioSearchAreas.findIndex((area) =>
       area.matchers.some((matcher) => normalizedCategory.includes(matcher)),
     ),
     0,
@@ -96,20 +204,28 @@ const PortfolioProjectHero = ({
   currentClient,
   category,
 }: PortfolioProjectHeroProps) => {
+  const router = useRouter();
   const [activeAreaIndex, setActiveAreaIndex] = useState(() =>
     getInitialAreaIndex(category),
   );
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const activeArea = projectAreas[activeAreaIndex];
+  const [expandedFrameIndex, setExpandedFrameIndex] = useState<number | null>(
+    null,
+  );
+  const activeArea = portfolioSearchAreas[activeAreaIndex];
   const activeProject =
-    activeArea.projects[activeProjectIndex] ?? currentTitle;
+    activeArea.projects[activeProjectIndex]?.title ?? currentTitle;
+  const expandedFrame =
+    expandedFrameIndex === null
+      ? null
+      : heroFrames[expandedFrameIndex % heroFrames.length];
   const filteredProjects = useMemo(() => {
     const normalizedSearch = normalizeText(searchTerm);
 
     return activeArea.projects.filter((project) =>
-      normalizeText(project).includes(normalizedSearch),
+      normalizeText(project.title).includes(normalizedSearch),
     );
   }, [activeArea.projects, searchTerm]);
 
@@ -135,25 +251,25 @@ const PortfolioProjectHero = ({
     <section className="relative overflow-visible bg-white dark:bg-[#0A0A0A]">
       <div className="relative h-[148px] overflow-visible rounded-b-[18px]">
         <BolinhasPattern
-          className="absolute -top-8 left-0 h-full w-full"
+          className="absolute top-[-29px] left-0 h-full w-full"
           fillOpacity={0.35}
         />
 
         <div className="absolute left-6 right-6 top-7 z-30 md:left-[70px] md:right-[70px]">
           <div className="flex items-end overflow-x-auto">
-            {projectAreas.map((area, index) => (
+            {portfolioSearchAreas.map((area, index) => (
               <button
                 key={area.label}
                 type="button"
                 aria-pressed={index === activeAreaIndex}
                 onClick={() => handleAreaClick(index)}
                 className={[
-                  "portfolio-hero-tab flex h-[38px] shrink-0 items-center justify-center border border-[rgba(114,123,142,0.16)] px-4 font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.14em] transition-colors duration-300",
+                  "portfolio-hero-tab flex h-[38px] shrink-0 items-center justify-center border border-b-0 border-[rgba(114,123,142,0.16)] px-4 font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.14em] transition-colors duration-300",
                   index === activeAreaIndex
                     ? "bg-white text-[#434A57] shadow-[0_-6px_18px_rgba(18,20,27,0.025)] dark:bg-[#0D0E13] dark:text-[#F1F2F4]"
                     : "bg-[#F0F1F3]/92 text-[#8E90A1] hover:text-[#434A57] dark:bg-[#111217] dark:hover:text-[#F1F2F4]",
                   index === 0 ? "rounded-tl-[12px]" : "-ml-px",
-                  index === projectAreas.length - 1 ? "rounded-tr-[12px]" : "",
+                  index === portfolioSearchAreas.length - 1 ? "rounded-tr-[12px]" : "",
                 ].join(" ")}
               >
                 {area.label}
@@ -186,7 +302,7 @@ const PortfolioProjectHero = ({
             <button
               type="button"
               onClick={() => goToProject(1)}
-              aria-label="Proximo projeto"
+              aria-label="Próximo projeto"
               className="flex size-3.5 shrink-0 items-center justify-center text-[#8E90A1] transition-colors duration-300 hover:text-[#9E372A]"
             >
               <span
@@ -210,11 +326,12 @@ const PortfolioProjectHero = ({
 
                     return (
                       <button
-                        key={project}
+                        key={project.href}
                         type="button"
                         onClick={() => {
                           setActiveProjectIndex(projectIndex);
                           setSearchOpen(false);
+                          router.push(project.href);
                         }}
                         className={[
                           "block w-full rounded-[6px] px-3 py-2 text-left font-sans text-[13px] leading-5 transition-colors",
@@ -223,7 +340,7 @@ const PortfolioProjectHero = ({
                             : "text-[#8E90A1] hover:bg-[#F7F7F8] hover:text-[#434A57] dark:hover:bg-[#15161C] dark:hover:text-[#F1F2F4]",
                         ].join(" ")}
                       >
-                        {project}
+                        {project.title}
                       </button>
                     );
                   })}
@@ -239,19 +356,53 @@ const PortfolioProjectHero = ({
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-18 bg-gradient-to-l from-white via-white/90 to-transparent dark:from-[#0A0A0A] dark:via-[#0A0A0A]/90 md:w-28" />
         <div className="portfolio-hero-carousel-track flex w-max gap-2.5">
           {[...heroFrames, ...heroFrames].map((frame, index) => (
-            <div
+            <button
               key={`${frame.gradient}-${index}`}
-              className="portfolio-hero-checker relative h-[420px] w-[390px] shrink-0 overflow-hidden rounded-[12px] md:h-[614px]"
+              type="button"
+              aria-label={`Expandir imagem ${index + 1} do projeto`}
+              onClick={() => setExpandedFrameIndex(index)}
+              className="portfolio-hero-checker relative h-[420px] w-[520px] shrink-0 overflow-hidden rounded-[12px] border border-[rgba(114,123,142,0.1)] md:h-[614px] md:w-[720px] dark:border-[rgba(255,255,255,0.1)]"
             >
               <div className={`absolute inset-0 ${frame.gradient}`} />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.76),rgba(255,255,255,0.1)_14%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.12)_86%,rgba(255,255,255,0.78))] dark:bg-[linear-gradient(90deg,rgba(10,10,10,0.72),rgba(10,10,10,0.08)_14%,rgba(10,10,10,0)_50%,rgba(10,10,10,0.1)_86%,rgba(10,10,10,0.72))]" />
               <div className="absolute inset-x-8 top-8 h-px bg-white/70" />
               <div className="absolute bottom-8 left-8 h-24 w-38 rounded-[10px] border border-white/55 bg-white/28 backdrop-blur-[2px]" />
               <div className="absolute right-8 top-10 h-38 w-18 rounded-full bg-white/22 blur-xl" />
-            </div>
+            </button>
           ))}
         </div>
       </div>
+
+      {expandedFrame ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Imagem expandida do projeto"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/18 px-4 py-6 backdrop-blur-[18px] dark:bg-[#0A0A0A]/42"
+          onClick={() => setExpandedFrameIndex(null)}
+        >
+          <div
+            className="relative w-full max-w-[1040px]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Fechar imagem expandida"
+              onClick={() => setExpandedFrameIndex(null)}
+              className="absolute -right-2 -top-12 flex size-9 items-center justify-center rounded-full border border-[rgba(114,123,142,0.18)] bg-white font-sans text-[18px] leading-none text-[#8E90A1] shadow-[0_14px_35px_rgba(18,20,27,0.08)] transition-colors duration-300 hover:text-[#9E372A] dark:bg-[#0D0E13] sm:-right-10 sm:-top-10"
+            >
+              ×
+            </button>
+            <div className="portfolio-hero-checker relative h-[62vh] min-h-[360px] overflow-hidden rounded-[12px] border border-[rgba(114,123,142,0.1)] shadow-[0_28px_90px_rgba(18,20,27,0.16)] dark:border-[rgba(255,255,255,0.1)]">
+              <div className={`absolute inset-0 ${expandedFrame.gradient}`} />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.58),rgba(255,255,255,0.08)_14%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.1)_86%,rgba(255,255,255,0.62))] dark:bg-[linear-gradient(90deg,rgba(10,10,10,0.56),rgba(10,10,10,0.08)_14%,rgba(10,10,10,0)_50%,rgba(10,10,10,0.1)_86%,rgba(10,10,10,0.58))]" />
+              <div className="absolute inset-x-10 top-10 h-px bg-white/70" />
+              <div className="absolute bottom-10 left-10 h-28 w-44 rounded-[10px] border border-white/55 bg-white/28 backdrop-blur-[2px]" />
+              <div className="absolute right-10 top-12 h-44 w-24 rounded-full bg-white/22 blur-xl" />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 };

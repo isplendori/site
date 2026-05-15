@@ -1,478 +1,241 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
-import Star from "@/components/atoms/Icon/Star";
-
-const portfolioGroups = [
+const portfolioAreas = [
   {
-    filter: "Identidade Visual",
+    label: "Identidade Visual",
     projects: [
-      {
-        title: "Projeto 1",
-        description:
-          "Sistema de identidade para uma marca premium, com foco em presença, consistência visual e direção criativa para pontos de contato digitais e impressos.",
-      },
-      {
-        title: "Projeto 2",
-        description:
-          "Refinamento de marca com novo território visual, paleta, tipografia e aplicações para tornar a comunicação mais clara, autoral e reconhecível.",
-      },
-      {
-        title: "Projeto 3",
-        description:
-          "Construção de linguagem visual para campanha institucional, conectando símbolo, narrativa e materiais de apresentação em um sistema único.",
-      },
-      {
-        title: "Projeto 4",
-        description:
-          "Revisão completa de marca para reposicionamento, com diretrizes de uso, assets sociais e uma base visual preparada para expansão.",
-      },
-      {
-        title: "Projeto 5",
-        description:
-          "Identidade visual para serviço especializado, equilibrando sofisticação, clareza comercial e personalidade em uma presença mais memorável.",
-      },
-      {
-        title: "Projeto 6",
-        description:
-          "Sistema gráfico modular com variações de composição, assinatura visual e peças de apoio para manter consistência sem perder movimento.",
-      },
-      {
-        title: "Projeto 7",
-        description:
-          "Atualização de marca com foco em maturidade visual, removendo ruído e reforçando os códigos que sustentam valor percebido.",
-      },
-      {
-        title: "Projeto 8",
-        description:
-          "Direção de identidade para lançamento, com elementos visuais, hierarquia editorial e aplicações pensadas para conversão e lembrança.",
-      },
+      { title: "Sistema de Marca Orbis", href: "/portfolio/projetos/projeto-1" },
+      { title: "Identidade Natura Forma", href: "/portfolio/projetos/projeto-2" },
+      { title: "Marca Canto Norte", href: "/portfolio/projetos/projeto-3" },
+      { title: "Rebrand Astra", href: "/portfolio/projetos/projeto-4" },
     ],
   },
   {
-    filter: "Web Design",
+    label: "Social Media",
     projects: [
-      {
-        title: "Projeto 1",
-        description:
-          "Website institucional com narrativa clara, ritmo editorial e estrutura de conversão para apresentar serviços sem cair em fórmula genérica.",
-      },
-      {
-        title: "Projeto 2",
-        description:
-          "Landing page de campanha com seções enxutas, prova visual e chamadas diretas para transformar interesse em conversa qualificada.",
-      },
-      {
-        title: "Projeto 3",
-        description:
-          "Página de apresentação para produto digital, organizada por benefício, demonstração e decisão, com foco em leitura rápida.",
-      },
-      {
-        title: "Projeto 4",
-        description:
-          "Redesign web para marca em crescimento, com nova arquitetura de conteúdo, sistema visual e experiência responsiva.",
-      },
-      {
-        title: "Projeto 5",
-        description:
-          "Site editorial para portfólio, usando imagens, grids e respiro para valorizar trabalhos sem excesso de interface.",
-      },
-      {
-        title: "Projeto 6",
-        description:
-          "Experiência web para serviço premium, com navegação discreta, páginas objetivas e CTAs posicionados no momento certo.",
-      },
+      { title: "Soma Social", href: "/portfolio/projetos/projeto-2" },
+      { title: "Lume CafÃ© ConteÃºdo", href: "/portfolio/projetos/projeto-3" },
+      { title: "Trama Editorial", href: "/portfolio/projetos/projeto-4" },
+      { title: "Viva Norte Social", href: "/portfolio/projetos/projeto-5" },
     ],
   },
   {
-    filter: "UI/UX Design",
+    label: "UI/UX Design",
     projects: [
-      {
-        title: "Projeto 1",
-        description:
-          "Fluxo de produto redesenhado para reduzir atrito, organizar decisões e dar mais confiança ao usuário em cada etapa.",
-      },
-      {
-        title: "Projeto 2",
-        description:
-          "Interface de dashboard com hierarquia mais clara, agrupamento de dados e componentes preparados para uso recorrente.",
-      },
-      {
-        title: "Projeto 3",
-        description:
-          "Protótipo navegável para validação de jornada, reunindo arquitetura de informação, estados e interações essenciais.",
-      },
-      {
-        title: "Projeto 4",
-        description:
-          "Sistema de componentes para produto digital, com padrões de formulário, navegação, feedback e estados responsivos.",
-      },
-      {
-        title: "Projeto 5",
-        description:
-          "Arquitetura de informacao para aplicativo, com fluxos mais curtos, hierarquia clara e estados pensados para decisao rapida.",
-      },
-      {
-        title: "Projeto 6",
-        description:
-          "Redesenho de interface mobile para melhorar leitura, reduzir ruido e deixar a experiencia mais consistente entre jornadas.",
-      },
-      {
-        title: "Projeto 7",
-        description:
-          "Biblioteca de componentes para operacao digital, reunindo padroes de navegacao, cards, filtros e confirmacoes.",
-      },
-      {
-        title: "Projeto 8",
-        description:
-          "Experiencia de onboarding orientada por clareza, ritmo e microinteracoes sutis para aumentar confianca do usuario.",
-      },
+      { title: "Plataforma Neon", href: "/portfolio/projetos/projeto-3" },
+      { title: "Corebase Dashboard", href: "/portfolio/projetos/projeto-5" },
+      { title: "UX Flow Prisma", href: "/portfolio/projetos/projeto-6" },
+      { title: "Interface Lumina", href: "/portfolio/projetos/projeto-7" },
     ],
   },
   {
-    filter: "Social Media",
+    label: "Web Design",
     projects: [
-      {
-        title: "Projeto 1",
-        description:
-          "Direção visual para conteúdo recorrente, criando consistência entre posts, campanhas, chamadas comerciais e peças institucionais.",
-      },
-      {
-        title: "Projeto 2",
-        description:
-          "Campanha social para lançamento, com linha editorial, templates, variações de formato e narrativa visual de apoio.",
-      },
-      {
-        title: "Projeto 3",
-        description:
-          "Sistema de posts para marca de serviço, mantendo ritmo, clareza e reconhecimento sem depender de layouts repetidos.",
-      },
-      {
-        title: "Projeto 4",
-        description:
-          "Peças estratégicas para awareness e conversão, conectando design, copy e direção de conteúdo em um calendário visual.",
-      },
-      {
-        title: "Projeto 5",
-        description:
-          "Pacote visual para redes com capas, carrosséis e templates editáveis alinhados à identidade principal da marca.",
-      },
-      {
-        title: "Projeto 6",
-        description:
-          "Linha visual para campanha de awareness, com pecas estaticas, carrosseis e variacoes de chamada por etapa do funil.",
-      },
-      {
-        title: "Projeto 7",
-        description:
-          "Calendario visual para marca especialista, equilibrando conteudo educativo, prova social e ofertas sem perder unidade.",
-      },
-      {
-        title: "Projeto 8",
-        description:
-          "Sistema de templates para conteudo recorrente, com direcao de arte, hierarquia editorial e adaptacao por formato.",
-      },
+      { title: "Vento Labs", href: "/portfolio/projetos/projeto-2" },
+      { title: "Linha Real", href: "/portfolio/projetos/projeto-6" },
+      { title: "Mirante Studio", href: "/portfolio/projetos/projeto-7" },
+      { title: "Atlas Website", href: "/portfolio/projetos/projeto-8" },
     ],
   },
   {
-    filter: "Edição de vídeo",
+    label: "Desenvolvimento",
     projects: [
-      {
-        title: "Projeto 1",
-        description:
-          "Edição de vídeo para campanha digital, com ritmo, cortes, lettering e acabamento visual alinhados à identidade da marca.",
-      },
-      {
-        title: "Projeto 2",
-        description:
-          "Sequência curta para lançamento, construída para prender atenção nos primeiros segundos e sustentar a mensagem principal.",
-      },
-      {
-        title: "Projeto 3",
-        description:
-          "Peças em motion para redes sociais, combinando tipografia, transições discretas e direção visual consistente.",
-      },
+      { title: "Corebase Build", href: "/portfolio/projetos/projeto-3" },
+      { title: "Nexo App Build", href: "/portfolio/projetos/projeto-5" },
+      { title: "Atlas Platform", href: "/portfolio/projetos/projeto-7" },
+      { title: "Boreal System", href: "/portfolio/projetos/projeto-8" },
     ],
   },
   {
-    filter: "+ Mais",
+    label: "+ Mais",
     projects: [
-      {
-        title: "Projeto 1",
-        description:
-          "Projeto especial combinando estratégia, design e produção para resolver uma necessidade específica de comunicação da marca.",
-      },
-      {
-        title: "Projeto 2",
-        description:
-          "Material de apresentação comercial com narrativa, design editorial e organização visual para apoiar decisões importantes.",
-      },
-      {
-        title: "Projeto 3",
-        description:
-          "Direção criativa para campanha híbrida, reunindo conceito, linguagem visual, peças digitais e recomendações de uso.",
-      },
-      {
-        title: "Projeto 4",
-        description:
-          "Kit visual para operação interna, com documentos, templates e recursos que ajudam a marca a manter consistência no dia a dia.",
-      },
-      {
-        title: "Projeto 5",
-        description:
-          "Experimento visual para ativação de marca, explorando composição, mensagem e formatos de entrega com mais liberdade criativa.",
-      },
-      {
-        title: "Projeto 6",
-        description:
-          "Peças de apoio para evento, incluindo identidade de comunicação, materiais digitais e diretrizes rápidas de aplicação.",
-      },
-      {
-        title: "Projeto 7",
-        description:
-          "Consultoria visual para organizar prioridades, corrigir ruídos de marca e orientar próximos passos com clareza.",
-      },
-      {
-        title: "Projeto 8",
-        description:
-          "Sistema de assets para campanha pontual, preparado para adaptação em diferentes canais sem perder unidade visual.",
-      },
+      { title: "Aurora Studio", href: "/portfolio/projetos/projeto-8" },
+      { title: "Mesa Onze", href: "/portfolio/projetos/projeto-1" },
+      { title: "Forma Livre", href: "/portfolio/projetos/projeto-4" },
+      { title: "Axis Campaign", href: "/portfolio/projetos/projeto-7" },
     ],
   },
 ];
 
-const projectMarkerColors = [
-  "#B13A30",
-  "#6E35B8",
-  "#D132C5",
-  "#1F77A8",
-  "#2B7AA8",
-  "#2B7AA8",
-  "#2B7AA8",
-  "#2B7AA8",
+const projectCardStyles = [
+  "bg-[radial-gradient(circle_at_14%_18%,rgba(67,74,87,0.18),transparent_15%),linear-gradient(135deg,#F8FAFC,#DDE4EA_42%,#FFFFFF)]",
+  "bg-[radial-gradient(circle_at_50%_46%,rgba(18,20,27,0.15),transparent_17%),linear-gradient(135deg,#EEF8F7,#FFFFFF_48%,#DAE6E8)]",
+  "bg-[radial-gradient(circle_at_78%_18%,rgba(255,255,255,0.42),transparent_18%),linear-gradient(135deg,#6C8FD7,#BFD1FA_50%,#EEF4FF)]",
+  "bg-[radial-gradient(circle_at_72%_24%,rgba(201,218,255,0.72),transparent_18%),linear-gradient(135deg,#C9D0DB,#F3F5F8_45%,#DCE6F8)]",
 ];
 
-const projectClientsByFilter = [
-  [
-    "Mariana Costa",
-    "Helena Duarte",
-    "Rafael Nunes",
-    "Clara Monteiro",
-    "Bianca Torres",
-    "Lucas Ferreira",
-    "Nina Prado",
-    "Sofia Almeida",
-  ],
-  [
-    "Vitor Azevedo",
-    "Camila Rocha",
-    "André Moraes",
-    "Laura Sanches",
-    "Renato Vidal",
-    "Paula Martins",
-  ],
-  [
-    "Isabela Lima",
-    "Daniel Pires",
-    "Bruna Teixeira",
-    "Felipe Cardoso",
-    "Marina Lopes",
-    "Theo Andrade",
-    "Julia Campos",
-    "Caio Moreira",
-  ],
-  ["Tatiana Reis", "Gustavo Leal", "Lívia Ramos", "Mateus Barros", "Joana Castro"],
-  ["Caio Mendes", "Eva Martins", "Otávio Freire"],
-  [
-    "Manuela Vieira",
-    "Rafaela Gomes",
-    "Thomas Lima",
-    "Eduarda Lopes",
-    "Cecília Fontes",
-    "Henrique Maia",
-    "Lara Campos",
-    "Miguel Silveira",
-  ],
+const projectCardAccents = [
+  "left-5 top-5 h-20 w-28",
+  "left-[72px] top-5 h-20 w-28",
+  "left-5 top-5 h-20 w-28",
+  "left-1/2 top-5 h-20 w-28 -translate-x-1/2",
 ];
 
-const projectCompaniesByFilter = [
-  [
-    "Orbis Studio",
-    "Natura Forma",
-    "Canto Norte",
-    "Astra Consultoria",
-    "Casa Vértice",
-    "Vila Rara",
-    "Matriz Clara",
-    "Ponto Lume",
-  ],
-  [
-    "Vento Labs",
-    "Linha Real",
-    "Prisma Tech",
-    "Boreal Group",
-    "Mirante Studio",
-    "Atlas Digital",
-  ],
-  [
-    "Neon Finance",
-    "Corebase",
-    "Fluxo Alto",
-    "Nexo App",
-    "Prisma Tech",
-    "Lumina Collective",
-    "Boreal Produto",
-    "Atlas Digital",
-  ],
-  ["Soma Social", "Lume Café", "Trama Conteúdo", "Viva Norte", "Alba Skin"],
-  ["Corte Lume", "Vento Motion", "Eixo Films"],
-  [
-    "Aurora Studio",
-    "Mesa Onze",
-    "Forma Livre",
-    "Arquivo 22",
-    "Solaris Lab",
-    "Nadir Eventos",
-    "Clara Strategy",
-    "Axis Campaign",
-  ],
-];
+const projectYears = ["2024", "2024", "2023", "2024"];
 
-const getProjectHref = (index: number) => `/portfolio/projetos/projeto-${index + 1}`;
+const FolderIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="121"
+    height="94"
+    viewBox="0 0 121 94"
+    fill="none"
+    aria-hidden="true"
+    className="h-[94px] w-[121px]"
+  >
+    <g clipPath="url(#folder_clip)">
+      <mask
+        id="folder_mask"
+        style={{ maskType: "luminance" }}
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="-5"
+        width="121"
+        height="99"
+      >
+        <path d="M121 -5H0V94H121V-5Z" fill="white" />
+      </mask>
+      <g mask="url(#folder_mask)">
+        <path
+          d="M0 6.28377V87.4819C0 90.9522 2.83632 93.7656 6.33508 93.7656H114.665C118.164 93.7656 121 90.9522 121 87.4819V19.0984C121 15.628 118.164 12.8146 114.665 12.8146H57.8066C55.3438 12.8146 53.1131 11.3888 51.8246 9.30677C49.4769 5.51278 45.2436 0 40.4653 0H6.32518C2.82641 0 0 2.81334 0 6.28377Z"
+          fill="#8F949F"
+        />
+        <path
+          d="M121 22.414V87.5864C121 91.1284 118.164 94 114.665 94H6.33508C2.83632 94 0 91.1284 0 87.5864V28.9071C0 25.3651 2.82696 22.4934 6.32572 22.4934H38.3272C49.0969 22.4934 47.5922 15.9997 54.9567 16C75.05 16.0009 102.459 16.0005 114.676 16.0002C118.174 16.0001 121 18.8717 121 22.414Z"
+          fill="url(#folder_gradient)"
+        />
+      </g>
+    </g>
+    <defs>
+      <linearGradient
+        id="folder_gradient"
+        x1="175.828"
+        y1="-17.8929"
+        x2="1.30277"
+        y2="95.8592"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0.234375" stopColor="#CCD0D8" />
+        <stop offset="1" stopColor="#ADB4C2" />
+      </linearGradient>
+      <clipPath id="folder_clip">
+        <rect width="121" height="94" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
 
 const PortfolioProjectsShowcase = () => {
-  const [activeFilterIndex, setActiveFilterIndex] = useState(0);
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const activeGroup = portfolioGroups[activeFilterIndex];
-  const activeProject = activeGroup.projects[activeProjectIndex];
-  const activeClient =
-    projectClientsByFilter[activeFilterIndex]?.[activeProjectIndex] ??
-    "Cliente Splendori";
-  const activeCompany =
-    projectCompaniesByFilter[activeFilterIndex]?.[activeProjectIndex] ??
-    activeProject.title;
-
-  const imageTone = useMemo(
-    () =>
-      `linear-gradient(135deg, rgba(158,55,42,${0.04 + activeFilterIndex * 0.01}), rgba(142,144,161,${0.04 + activeProjectIndex * 0.006}))`,
-    [activeFilterIndex, activeProjectIndex],
-  );
-
-  const handleFilterClick = (index: number) => {
-    setActiveFilterIndex(index);
-    setActiveProjectIndex(0);
-  };
+  const [activeAreaIndex, setActiveAreaIndex] = useState(0);
+  const activeArea = portfolioAreas[activeAreaIndex];
 
   return (
-    <section className="w-full border-b border-[rgba(114,123,142,0.1)] bg-white text-[#434A57] dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] dark:text-[#F7F7F8]">
-      <div className="flex min-h-[236px] flex-col items-center justify-center border-b border-[rgba(114,123,142,0.1)] px-6 py-12 text-center dark:border-[rgba(255,255,255,0.1)] md:min-h-[236px] md:py-12">
-        <p className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
-          PORTFÓLIO
+    <section className="w-full border-x border-b border-[rgba(114,123,142,0.1)] bg-white text-[#434A57] dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A]">
+      <div className="flex min-h-[314px] w-full flex-col items-center justify-center bg-white">
+        <p className="reveal-element h-[29px] w-full max-w-[966px] font-mono text-[12px] font-semibold uppercase leading-[21px] tracking-[1.08px] text-[#8E90A1]">
+          ÁREAS DE ATUAÇÃO
         </p>
-        <h2 className="mt-2 max-w-[760px] font-instrument-serif text-[36px] font-light leading-[38px] tracking-normal text-[#434A57] dark:text-[#F2F2F4]">
-          Imagens{" "}
-          <span className="italic text-[#9E372A]">valem mais</span> que mil
-          propostas.
-        </h2>
 
-        <div className="mt-5.25 flex max-w-[610px] flex-wrap items-center justify-center gap-2.25">
-          {portfolioGroups.map((group, index) => {
-            const isActive = index === activeFilterIndex;
+        <div className="flex h-[152px] w-full items-center justify-center bg-white">
+          <div className="flex h-[151px] w-full max-w-[994px] items-center justify-start gap-5 overflow-visible">
+          {portfolioAreas.map((area, index) => {
+            const isActive = index === activeAreaIndex;
 
             return (
               <button
-                key={group.filter}
+                key={area.label}
                 type="button"
                 aria-pressed={isActive}
-                onClick={() => handleFilterClick(index)}
-                className={[
-                  "h-9 rounded-[200px] border px-4 font-sans text-[14px] leading-5 transition-colors duration-300",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9E372A]/25",
-                  isActive
-                    ? "border-[#E7B4AD] bg-[#EADCDB] text-[#9E372A]"
-                    : "border-dashed border-[#D6DAE2] bg-white text-[#8E90A1] hover:border-[#C4CAD5] hover:text-[#434A57] dark:bg-[#101116] dark:hover:text-[#F7F7F8]",
-                ].join(" ")}
+                onClick={() => setActiveAreaIndex(index)}
+                className="reveal-element group flex w-[149px] shrink-0 flex-col items-center justify-center gap-4 text-center focus:outline-none"
+                style={{ transitionDelay: `${index * 70}ms` }}
               >
-                {group.filter}
+                <FolderIcon />
+                <span
+                  className={[
+                    "inline-flex h-9 max-w-full items-center justify-center rounded-[200px] border border-dashed px-4 py-2 font-sans text-[14px] leading-5 transition-colors duration-300",
+                    isActive
+                      ? "border-[#D6DAE2] bg-[#F1F2F4] text-[#8E90A1]"
+                      : "border-[#D6DAE2] bg-white text-[#8E90A1] group-hover:border-[#C7CCD6] group-hover:text-[#434A57]",
+                  ].join(" ")}
+                >
+                  {area.label}
+                </span>
               </button>
             );
           })}
+          </div>
         </div>
       </div>
 
-      <div className="grid min-h-[520px] border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] lg:grid-cols-[48%_52%]">
-        <article className="flex min-h-[360px] items-center border-b border-[rgba(114,123,142,0.1)] px-6 py-16 dark:border-[rgba(255,255,255,0.1)] md:px-13.5 lg:min-h-[520px] lg:border-b-0 lg:border-r">
-          <div className="max-w-108.75">
-            <p className="mb-3 font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#9E372A]">
-              {activeClient}
-            </p>
-            <h3 className="font-instrument-serif text-[30px] font-light leading-[34px] text-[#434A57] dark:text-[#F4F4F5]">
-              {activeCompany}
-            </h3>
-            <p className="mt-3.5 font-sans text-[14px] font-normal leading-4.75 text-[#8E90A1]">
-              {activeProject.description}
-            </p>
+      <div className="border-t border-[rgba(114,123,142,0.1)] px-6 pb-16 pt-[68px] md:pb-20">
+        <div className="reveal-element mx-auto mb-[42px] w-full max-w-[986px]">
+          <h2 className="font-instrument-serif text-[36px] font-light leading-[40px] text-[#434A57] dark:text-[#F1F2F4]">
+            {activeArea.label}
+          </h2>
+        </div>
+
+        <div className="mx-auto grid w-full max-w-[986px] overflow-hidden rounded-[10px] border border-[rgba(114,123,142,0.1)] md:grid-cols-4">
+          {activeArea.projects.slice(0, 4).map((project, index) => (
             <Link
-              href={getProjectHref(activeProjectIndex)}
-              className="mt-5.25 inline-flex h-9 flex-row items-center justify-center gap-2.5 rounded-[200px] border border-[rgba(114,123,142,0.1)] bg-[#12141B] px-4 py-2 transition-colors hover:bg-[#9E372A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9E372A]/25 dark:border-[rgba(255,255,255,0.1)] dark:bg-[#F1F2F4] group"
+              key={`${activeArea.label}-${project.title}`}
+              href={project.href}
+              aria-label={`Abrir ${project.title}`}
+              className="reveal-element group relative flex min-h-[360px] overflow-hidden border-b border-[rgba(114,123,142,0.1)] md:min-h-[414px] md:border-b-0 md:border-r md:last:border-r-0"
+              style={{ transitionDelay: `${index * 90}ms` }}
             >
-              <Star
-                color="#FFFFFF"
-                className="transition-colors group-hover:fill-[#FFFFFF] dark:fill-[#12141B] dark:group-hover:fill-[#FFFFFF]"
-              />
-              <span className="font-sans text-[14px] leading-5 text-center text-white dark:text-[#12141B] dark:group-hover:text-white">
-                Veja mais sobre
+              <div
+                className={[
+                  "absolute inset-0 transition-[filter,transform] duration-300 group-hover:scale-[1.015] group-hover:blur-[8px]",
+                  projectCardStyles[index],
+                ].join(" ")}
+              >
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_45%,rgba(255,255,255,0.88)_100%)]" />
+                <div
+                  className={[
+                    "absolute rounded-[8px] border border-white/55 bg-white/36 backdrop-blur-[2px]",
+                    projectCardAccents[index],
+                  ].join(" ")}
+                />
+                {index === 0 ? (
+                  <div className="absolute bottom-28 left-5 h-20 w-36 rotate-[-8deg] rounded-[10px] border border-white/45 bg-white/28" />
+                ) : null}
+                {index === 1 ? (
+                  <div className="absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8E90A1]/16 blur-xl" />
+                ) : null}
+                {index === 2 ? (
+                  <div className="absolute bottom-24 left-10 h-24 w-28 rounded-[4px] bg-white/24" />
+                ) : null}
+                {index === 3 ? (
+                  <div className="absolute bottom-24 right-6 grid h-36 w-32 grid-cols-2 gap-2 opacity-70">
+                    <span className="rounded-[6px] bg-white/34" />
+                    <span className="rounded-[6px] bg-white/26" />
+                    <span className="rounded-[6px] bg-white/22" />
+                    <span className="rounded-[6px] bg-white/30" />
+                  </div>
+                ) : null}
+              </div>
+              <div className="absolute bottom-6 left-5 right-5 z-10">
+                <p className="font-mono text-[11px] font-semibold uppercase leading-4 tracking-[0.12em] text-[#8E90A1]">
+                  {projectYears[index]}
+                </p>
+                <h3 className="mt-2 font-sans text-[18px] leading-6 text-[#434A57]">
+                  {project.title}
+                </h3>
+              </div>
+              <span
+                aria-hidden="true"
+                className="absolute left-1/2 top-1/2 z-10 flex size-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[32px] leading-none text-[#434A57] opacity-0 shadow-[0_18px_50px_rgba(18,20,27,0.12)] transition-opacity duration-300 group-hover:opacity-100"
+              >
+                ↗
               </span>
             </Link>
-          </div>
-        </article>
-
-        <div
-          aria-label={`Imagem do ${activeProject.title} em ${activeGroup.filter}`}
-          className="min-h-[360px] bg-[#FAFAFA] transition-colors duration-500 dark:bg-[#101116] lg:min-h-[520px]"
-          style={{ background: imageTone }}
-        />
-      </div>
-
-      <nav
-        aria-label={`Projetos de ${activeGroup.filter}`}
-        className="flex min-h-[100px] items-center overflow-x-auto px-6 py-6 sm:justify-center md:px-13.5"
-      >
-        <div className="flex min-w-max items-center gap-2.25">
-          {activeGroup.projects.map((project, index) => {
-            const isActive = index === activeProjectIndex;
-
-            return (
-              <button
-                key={`${activeGroup.filter}-${project.title}-${index}`}
-                type="button"
-                aria-pressed={isActive}
-                onClick={() => setActiveProjectIndex(index)}
-                className={[
-                  "group inline-flex h-9 items-center gap-2.5 rounded-[200px] border px-4 font-sans text-[14px] leading-5 transition-colors duration-300",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9E372A]/25",
-                  isActive
-                    ? "border-[#D4D9E2] bg-[#FAFAFA] text-[#434A57] dark:bg-[#101116] dark:text-[#F7F7F8]"
-                    : "border-[#E6E9EF] bg-white text-[#8E90A1] hover:border-[#D4D9E2] hover:text-[#434A57] dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0D0E13] dark:hover:text-[#F7F7F8]",
-                ].join(" ")}
-              >
-                <span
-                  aria-hidden="true"
-                  className="relative size-3.5 shrink-0 before:absolute before:left-1/2 before:top-0 before:h-full before:w-1.5 before:-translate-x-1/2 before:rounded-[2px] before:bg-[var(--project-marker)] after:absolute after:left-0 after:top-1/2 after:h-1.5 after:w-full after:-translate-y-1/2 after:rounded-[2px] after:bg-[var(--project-marker)]"
-                  style={
-                    {
-                      "--project-marker": projectMarkerColors[index],
-                    } as React.CSSProperties
-                  }
-                />
-                <span>{project.title.replace("Projeto ", "Projeto 0")}</span>
-              </button>
-            );
-          })}
+          ))}
         </div>
-      </nav>
+      </div>
     </section>
   );
 };

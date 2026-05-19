@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope, Figtree, Instrument_Serif, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Manrope, Figtree, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import ScrollObserver from "@/components/atoms/ScrollObserver";
 import ScrollToTop from "@/components/atoms/ScrollToTop";
@@ -29,12 +29,6 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-next",
   weight: "400",
   style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--next-font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -71,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${figtree.variable} ${instrumentSerif.variable} ${newIconSerif.variable} ${inter.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${figtree.variable} ${instrumentSerif.variable} ${newIconSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}

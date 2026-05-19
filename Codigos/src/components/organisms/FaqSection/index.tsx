@@ -36,40 +36,40 @@ const FaqSection = ({ className }: FaqSectionProps) => {
       {
         question: "Qual a diferença entre assinatura e por projeto?",
         answer:
-          "Na assinatura você paga um valor fixo por mês e solicita quantas peças quiser, para qualquer marca. No por projeto, você solicita algo específico e paga apenas por aquilo. Sem mensalidade, sem compromisso fixo.",
+          "A assinatura mantém sua marca em produção contínua. O projeto resolve uma necessidade específica, como identidade, site, campanha ou apresentação.",
       },
       {
         question: "Tenho mais de uma marca. Posso usar a assinatura para todas?",
-        answer: "A assinatura cobre qualquer marca que você tiver. Sem custo adicional por isso.",
+        answer: "Sim. A assinatura pode atender mais de uma marca quando elas fazem parte do mesmo ecossistema ou da mesma operação.",
       },
       {
         question: "Em quanto tempo médio recebo minha entrega?",
         answer:
-          "Todo projeto é iniciado em até 48 horas úteis após a confirmação. O prazo de entrega depende da complexidade da peça e é alinhado no momento do pedido.",
+          "A primeira direção começa em até 48 horas úteis após a confirmação. O prazo final depende da complexidade e é combinado antes da execução.",
       },
       {
         question: "Vocês atendem qualquer tipo de negócio?",
-        answer: "Atendemos desde negócios locais até empresas em expansão, em qualquer setor.",
+        answer: "Atendemos negócios que precisam de mais clareza, consistência e presença. O setor importa menos do que a disposição para organizar a marca.",
       },
       {
         question: "Posso começar com um projeto pequeno e expandir depois?",
         answer:
-          "Sim. Muitos clientes começam com uma peça específica e migram para a assinatura conforme a demanda cresce.",
+          "Sim. Muitas marcas começam com uma entrega pontual e migram para um acompanhamento recorrente quando percebem que a demanda não era isolada.",
       },
       {
         question: "Preciso saber exatamente o que quero antes de entrar em contato?",
         answer:
-          "Não. A maioria dos nossos clientes chega sem saber por onde começar. O diagnóstico existe justamente para isso.",
+          "Não. O diagnóstico existe para separar urgência real de ansiedade de marca e indicar o primeiro movimento com mais segurança.",
       },
       {
         question: "Quantas revisões estão incluídas no projeto?",
         answer:
-          "As revisões são alinhadas no início de cada projeto. Trabalhamos até a entrega fazer sentido para o seu negócio, sem cobrar por cada ajuste pequeno.",
+          "As revisões são alinhadas no início. O objetivo é chegar em uma entrega coerente com o negócio, não empilhar ajustes sem direção.",
       },
       {
         question: "A Splendori mantém os direitos dos projetos entregues?",
         answer:
-          "Todos os projetos são registrados como autoria da Splendori para proteção contra plágio externo. Durante o contrato, a autoria de uso é cedida integralmente ao cliente. Os projetos podem ser usados no nosso portfólio, salvo acordo diferente.",
+          "A autoria criativa permanece registrada pela Splendori e o direito de uso é cedido ao cliente conforme contrato. Uso em portfólio pode ser ajustado por acordo.",
       },
     ],
     []
@@ -82,13 +82,13 @@ const FaqSection = ({ className }: FaqSectionProps) => {
       <div className="h-auto w-full border-b border-[rgba(114,123,142,0.1)] bg-white p-6 dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] md:w-1/3 md:border-l md:p-13.5">
         <div className="flex w-full flex-col items-start gap-2.5 md:w-74.25">
           <div className="flex w-full flex-col items-start">
-            <span className="w-full font-mono text-[12px] font-semibold leading-5.25 tracking-[0.09em] text-[#8E90A1] uppercase">
+            <span className="tagline-text w-full text-[#8E90A1]">
               FAQ
             </span>
             <h2 className="w-full font-instrument-serif text-[32px] font-light leading-[36px] text-[#434A57] md:text-[36px] md:leading-10.75">
-              <span className="block md:whitespace-nowrap">Sua dúvida já pode</span>
+              <span className="block md:whitespace-nowrap">Talvez a resposta</span>
               <span className="block md:whitespace-nowrap">
-                ter sido <span className="italic text-[#9E372A]">resolvida</span>
+                já esteja <span className="italic text-[#9E372A]">aqui</span>
               </span>
             </h2>
           </div>
@@ -98,7 +98,7 @@ const FaqSection = ({ className }: FaqSectionProps) => {
             className="flex h-9 flex-row items-center justify-center gap-2.5 rounded-[200px] border border-dashed border-[rgba(114,123,142,0.28)] bg-white px-4 py-2 transition-colors hover:border-[#9E372A] dark:border-[rgba(255,255,255,0.2)] dark:bg-[#0A0A0A] group"
           >
             <span className="font-sans text-[14px] leading-5 text-center text-[#8E90A1] transition-colors group-hover:text-[#9E372A]">
-              Entre em contato
+              Chamar a Splendori
             </span>
             <div className="h-2 w-2 [&_path]:transition-colors [&_path]:group-hover:stroke-[#9E372A]">
               <ArrowUpRight stroke="#8E90A1" />

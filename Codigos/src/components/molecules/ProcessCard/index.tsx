@@ -29,7 +29,7 @@ const ProcessCard = ({ eyebrow, title, description, stepIndex = 0, className }: 
         </div>
 
         <div className="flex flex-col items-start p-0 gap-2.5 w-74.25">
-          <span className="process-eyebrow font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
+          <span className="process-eyebrow tagline-text text-[#8E90A1]">
             {eyebrow}
           </span>
           <h3 className="font-figtree font-normal text-[20px] leading-6 text-[#434A57] flex items-center">

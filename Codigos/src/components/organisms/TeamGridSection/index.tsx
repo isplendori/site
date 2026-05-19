@@ -52,7 +52,7 @@ const TeamGridSection = ({
     >
       <div className="flex flex-col items-start p-0 w-full md:w-159.5 px-4 md:px-0 max-w-full">
         {badge && (
-          <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
+          <span className="tagline-text text-[#8E90A1]">
             {badge}
           </span>
         )}

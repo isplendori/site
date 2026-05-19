@@ -12,25 +12,25 @@ export const metadata: Metadata = {
 
 const steps = [
   {
-    title: "Defina sua meta",
-    imageAlt: "Imagem ilustrativa do método",
+    title: "Ler o cenário",
+    imageAlt: "Cubos representando a primeira leitura do método Splendori",
     image: getImage("four_cubes").src,
     description:
-      "Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega pensada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério.",
+      "Antes de sugerir formato, entendemos negócio, público, oferta e ruídos que impedem a marca de ser percebida com clareza.",
   },
   {
-    title: "Defina sua meta",
-    imageAlt: "Imagem ilustrativa do método",
+    title: "Criar estrutura",
+    imageAlt: "Cubo branco representando estrutura no método Splendori",
     image: getImage("white_cube_supporting").src,
     description:
-      "Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega pensada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério.",
+      "Transformamos intenção em hierarquia: mensagem, visual, canais e prioridades. A estética entra depois da direção.",
   },
   {
-    title: "Defina sua meta",
-    imageAlt: "Imagem ilustrativa do método",
+    title: "Executar com critério",
+    imageAlt: "Foguete branco representando execução no método Splendori",
     image: getImage("white_rocket").src,
     description:
-      "Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega pensada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério.",
+      "Cada entrega nasce com função definida, revisão objetiva e acabamento suficiente para a marca sustentar confiança no mundo real.",
   },
 ];
 
@@ -38,7 +38,17 @@ export default function MetodoPage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection />
+        <HeroSection
+          eyebrow="MÉTODO. CLAREZA. EXECUÇÃO."
+          titleLineOneWords={["A", "marca", "não", "cresce"]}
+          titleLineTwoWords={["no", "improviso."]}
+          titleLineTwoAccentWord="improviso."
+          titleLineOneAriaLabel="A marca não cresce"
+          titleLineTwoAriaLabel="no improviso."
+          description="Nosso método existe para tirar a decisão do achismo. Primeiro entendemos o problema, depois desenhamos o sistema e só então executamos."
+          portfolioButtonText="Ver projetos"
+          diagnosticButtonText="Falar sobre minha marca"
+        />
         <BrandDivider brands={defaultBrands} />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative">
@@ -57,13 +67,13 @@ export default function MetodoPage() {
           badge="MÉTODO"
           title={
             <>
-              <span className="block">Sua marca foi feita</span>
+              <span className="block">O problema raramente</span>
               <span className="block">
-                mas não foi <span className="italic text-[#9E372A]">pensada</span>.
+                é só <span className="italic text-[#9E372A]">visual</span>.
               </span>
             </>
           }
-          description="Logo feito na correria, redes paradas, site na IA, identidade que não passa o que você vale. Não sobra tempo, não tem firmeza, e a sensação de que o negócio poderia ir mais longe fica só na cabeça."
+          description="Quando a marca não tem critério, tudo vira urgência: post, site, logo, campanha. O método existe para descobrir o que realmente precisa mudar primeiro."
           buttonText=""
           buttonHref="#solucao"
           buttonVariant="primary"
@@ -97,14 +107,14 @@ export default function MetodoPage() {
           badge="A SOLUÇÃO"
           title={
             <>
-              <span className="block">Nós pensamos por você</span>
+              <span className="block">Primeiro a direção</span>
               <span className="block">
-                e você começa a <span className="italic text-[#9E372A]">crescer</span>.
+                depois o <span className="italic text-[#9E372A]">desenho</span>.
               </span>
             </>
           }
-          description="Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega pensada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério."
-          buttonText="Conheça nossa história"
+          description="A marca ganha uma lógica antes de ganhar peças. Isso evita retrabalho, melhora a leitura e deixa cada entrega mais fácil de defender."
+          buttonText="Conheça a história"
           buttonHref="/sobre"
           steps={steps}
         />

@@ -5,7 +5,7 @@ import { BrandDivider, FinalCtaSection, HeroSection, MainLayout, StarsDivider, T
 
 export const metadata: Metadata = {
   title: "Causas — Splendori",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+  description: "Causas e instituições que ampliam o sentido da presença que a Splendori escolhe apoiar.",
 };
 
 const ongs = [
@@ -58,7 +58,17 @@ export default function CausasPage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection />
+        <HeroSection
+          eyebrow="CAUSAS. ESCOLHA. PRESENÇA."
+          titleLineOneWords={["Toda", "marca", "também"]}
+          titleLineTwoWords={["escolhe", "o", "que", "apoia."]}
+          titleLineTwoAccentWord="apoia."
+          titleLineOneAriaLabel="Toda marca também"
+          titleLineTwoAriaLabel="escolhe o que apoia."
+          description="Aqui reunimos iniciativas que merecem visibilidade, cuidado e continuidade. Presença também é decidir para onde a atenção da marca aponta."
+          portfolioButtonText="Conhecer projetos"
+          diagnosticButtonText="Falar com a Splendori"
+        />
         <BrandDivider brands={defaultBrands} />
         <div className="flex flex-col items-center justify-center w-full h-full relative">
           <svg width="100%" height="100%" viewBox="0 0 1216 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -75,7 +85,7 @@ export default function CausasPage() {
         <WordmarkSection
           badge="MOTIVAÇÃO"
           title={<span className="block italic">Nossa motivação</span>}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          description="Apoiamos causas porque comunicação também distribui atenção. Quando uma instituição séria ganha clareza, mais gente entende o trabalho, confia no processo e encontra um caminho para ajudar."
           buttonText=""
           floatingMessages={[]}
           hideWordmark
@@ -85,7 +95,7 @@ export default function CausasPage() {
 
         <TeamGridSection
           badge="ONGS"
-          title={<span className="block italic">Conheça um pouco</span>}
+          title={<span className="block italic">Conheça quem merece atenção</span>}
           members={ongsWithLinks}
           columns={4}
           height={1100}
@@ -104,18 +114,18 @@ export default function CausasPage() {
         </div>
 
         <FinalCtaSection
-          badge="PRONTO PARA COMEÇAR?"
+          badge="QUER SOMAR COM CLAREZA?"
           title={
             <>
-              <span className="block">Quer fazer parte</span>
+              <span className="block">Uma boa causa precisa</span>
               <span className="block">
-                <span className="italic text-[#9E372A]">do nosso time?</span>
+                <span className="italic text-[#9E372A]">ser entendida</span>
               </span>
             </>
           }
-          description="Uma conversa. Sem compromisso, sem 40 slides, sem mil propostas, sem enrolação. A gente entende o seu negócio e mostra onde está a oportunidade."
-          buttonText="Envie seu currículo e portfólio"
-          buttonHref="/carreiras"
+          description="Se você conhece uma iniciativa que precisa organizar presença, conte para a gente."
+          buttonText="Indicar uma causa"
+          buttonHref="/contato"
           floatingMessages={[]}
         />
       </div>

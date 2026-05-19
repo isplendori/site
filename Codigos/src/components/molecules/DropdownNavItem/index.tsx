@@ -39,7 +39,7 @@ const DropdownNavItem = ({ label, children }: DropdownNavItemProps) => {
         className="flex gap-1.5 items-center text-[#727b8e] hover:text-[#9e372a] transition-colors"
         aria-expanded={isOpen}
       >
-        <span className="font-inter font-normal text-[15px] leading-6.5 whitespace-nowrap">
+        <span className="font-sans text-[15px] font-normal not-italic leading-6.5 whitespace-nowrap">
           {label}
         </span>
         <span className={cn("transition-transform duration-200 ease-out", isOpen && "rotate-180")}>

@@ -142,7 +142,7 @@ const LoginPageClient = () => {
             <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_top,#fff,rgba(255,255,255,0))] dark:bg-[linear-gradient(to_top,#0A0A0A,rgba(10,10,10,0))]" />
 
             <div className="relative z-10 flex max-w-133 flex-col gap-5">
-              <span className="reveal-element font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+              <span className="tagline-text reveal-element text-[#8E90A1]">
                 ÁREA DE USUÁRIOS
               </span>
               <h1 className="reveal-element delay-[160ms] font-instrument-serif text-[40px] font-light leading-[42px] text-[#434A57] md:text-[56px] md:leading-[58px]">
@@ -161,7 +161,7 @@ const LoginPageClient = () => {
               noValidate
             >
               <div className="flex flex-col gap-2">
-                <span className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+                <span className="tagline-text text-[#8E90A1]">
                   LOGIN
                 </span>
                 <h2 className="font-instrument-serif text-[36px] font-light leading-10.75 text-[#434A57]">

@@ -29,14 +29,14 @@ export default function Home() {
           badge="A SOLUÇÃO"
           title={
             <>
-              <span className="block">Nós pensamos por você</span>
+              <span className="block">A gente organiza o que</span>
               <span className="block">
-                e você começa a <span className="italic text-[#9E372A]">crescer</span>.
+                estava <span className="italic text-[#9E372A]">solto</span>.
               </span>
             </>
           }
-          description="Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega encaixada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério."
-          buttonText="Veja nossos projetos"
+          description="Entendemos onde a comunicação perde força, desenhamos um sistema claro e colocamos cada entrega para trabalhar a favor do seu negócio."
+          buttonText="Ver projetos"
           buttonHref="/portfolio/projetos"
           reverse
         />
@@ -76,19 +76,19 @@ export default function Home() {
         </div>
         <section className="flex min-h-73 w-full items-start border-t border-[#F1F2F4] bg-white px-6 py-12 dark:bg-[#0A0A0A] md:px-13.5 md:py-18">
           <div className="flex w-full max-w-108.75 flex-col items-start gap-3.5">
-            <span className="reveal-element font-mono text-[12px] font-semibold leading-5.25 tracking-[0.09em] text-[#8E90A1] uppercase">
-              ATUAÇÃO
+            <span className="tagline-text reveal-element text-[#8E90A1]">
+                ATUAÇÃO
             </span>
 
             <h2 className="reveal-element delay-[200ms] font-instrument-serif text-[32px] font-light leading-[34px] text-[#434A57] md:text-[36px] md:leading-9">
-              <span className="block">Nós pensamos por você</span>
+              <span className="block">Sua presença precisa</span>
               <span className="block">
-                e você começa a <span className="italic text-[#9E372A]">crescer</span>.
+                fazer o cliente <span className="italic text-[#9E372A]">ficar</span>.
               </span>
             </h2>
 
             <p className="reveal-element delay-[400ms] font-sans text-[14px] leading-4.75 text-[#8E90A1]">
-              Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega pensada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério.
+              Marca, site, conteúdo e tráfego não podem contar histórias diferentes. Quando tudo aponta para a mesma direção, o visitante entende mais rápido por que deve confiar.
             </p>
           </div>
         </section>

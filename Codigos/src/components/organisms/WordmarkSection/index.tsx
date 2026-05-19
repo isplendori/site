@@ -27,15 +27,15 @@ export interface WordmarkSectionProps {
 
 const defaultTitle = (
   <>
-    <span className="block">Sua marca foi feita</span>
+    <span className="block">Sua marca já aparece</span>
     <span className="block">
-      mas não foi <span className="italic text-[#9E372A]">pensada</span>.
+      mas ainda não <span className="italic text-[#9E372A]">sustenta</span>.
     </span>
   </>
 );
 
 const defaultDescription =
-  "Logo feito na correria, redes paradas, site na IA, identidade que não passa o que você vale. Não sobra tempo, não tem firmeza, e a sensação de que o negócio poderia ir mais longe fica só na cabeça.";
+  "Logo feito na pressa, redes sem direção, site que não explica valor. O cliente até chega, mas não encontra confiança suficiente para ficar, entender e chamar.";
 
 const WordmarkSection = ({
   className,
@@ -45,7 +45,7 @@ const WordmarkSection = ({
   buttonText = "Conheça nossa história",
   buttonHref = "/sobre",
   buttonVariant = "outline",
-  floatingMessages = ["SAIBA SOBRE NÓS"],
+  floatingMessages = ["ENTENDA O PORQUÊ"],
   wordmark = "SPLENDOR·I",
   wordmarkClassName,
   hideWordmark = false,
@@ -89,7 +89,7 @@ const WordmarkSection = ({
         >
           <div className="flex w-full flex-col items-start p-0 md:w-108.75">
             <span className={cn(
-              "font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] reveal-element",
+              "tagline-text text-[#8E90A1] reveal-element",
               isProblemBadge && "anna-problem-kicker"
             )}>
               {badge}
@@ -142,7 +142,7 @@ const WordmarkSection = ({
           "relative box-border flex h-36 w-full flex-col items-center justify-end gap-2.5 overflow-hidden border-b border-[rgba(114,123,142,0.1)] bg-white p-0 dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A] md:h-full md:w-1/2",
           reverse ? "border-l" : "border-l border-r"
         )}>
-          <div className={cn("mr-2.5 flex select-none items-center text-center font-new-icon-serif text-[96px] font-normal leading-[60px] tracking-0 text-[rgba(50,55,81,0.1)] md:text-[180px] md:leading-17.5 ", wordmarkClassName)}>
+          <div className={cn("mr-2.5 flex select-none items-center text-center font-instrument-serif text-[96px] font-normal leading-[60px] tracking-0 text-[rgba(50,55,81,0.1)] md:text-[180px] md:leading-17.5 ", wordmarkClassName)}>
             {wordmark}
           </div>
         </div>

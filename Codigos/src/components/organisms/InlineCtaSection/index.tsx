@@ -11,15 +11,15 @@ export interface InlineCtaSectionProps {
 }
 
 const terms = [
-  "Edição de vídeos",
-  "UI Design",
-  "UX Design",
-  "Landing Pages",
-  "Sites",
-  "Social Media",
-  "Tráfego Pago",
-  "Identidade Visual",
-  "Projetos",
+  "post sem direção",
+  "site confuso",
+  "identidade frágil",
+  "campanha solta",
+  "landing page morna",
+  "feed sem ritmo",
+  "projeto sem critério",
+  "marca sem sistema",
+  "tráfego sem destino",
 ];
 
 const InlineCtaSection = ({ className }: InlineCtaSectionProps) => {
@@ -49,8 +49,8 @@ const InlineCtaSection = ({ className }: InlineCtaSectionProps) => {
       window.setTimeout(() => {
         setActiveTermIndex((currentIndex) => (currentIndex + 1) % terms.length);
         setIsSwapping(false);
-      }, 260);
-    }, 2200);
+      }, 220);
+    }, 1800);
 
     return () => window.clearInterval(swapInterval);
   }, []);
@@ -58,7 +58,7 @@ const InlineCtaSection = ({ className }: InlineCtaSectionProps) => {
   return (
     <section
       className={cn(
-        "w-full bg-white dark:bg-[#0A0A0A] flex flex-col items-center justify-center py-30",
+        "w-full bg-white dark:bg-[#0A0A0A] flex flex-col items-center justify-center py-24",
         className
       )}
     >
@@ -94,13 +94,13 @@ const InlineCtaSection = ({ className }: InlineCtaSectionProps) => {
           </Link>
 
           <span className="font-instrument-serif font-light text-[24px] leading-7.5 text-[#434A57]">
-            sem resultados.
+            segurando seu crescimento.
           </span>
         </div>
       </div>
 
       <FloatingMessage
-        messages={["VEM VER DE PERTO."]}
+        messages={["O PROBLEMA APARECE AQUI."]}
         isVisible={showFloatingMessage}
       />
     </section>

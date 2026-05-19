@@ -11,14 +11,24 @@ import PortfolioProjectsShowcase from "./PortfolioProjectsShowcase";
 
 export const metadata: Metadata = {
   title: "Projetos — Splendori",
-  description: "Trabalhos comerciais, marcas, sites e campanhas.",
+  description: "Marcas, sites e campanhas criados para resolver presença com critério.",
 };
 
 export default function ProjetosPage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection />
+        <HeroSection
+          eyebrow="PORTFÓLIO. CRITÉRIO. APLICAÇÃO."
+          titleLineOneWords={["Projetos", "que", "não"]}
+          titleLineTwoWords={["param", "na", "aparência."]}
+          titleLineTwoAccentWord="aparência."
+          titleLineOneAriaLabel="Projetos que não"
+          titleLineTwoAriaLabel="param na aparência."
+          description="Cada entrega aqui nasceu para organizar uma marca, sustentar uma mensagem ou melhorar uma experiência. Bonito é pouco quando o negócio precisa ser entendido."
+          portfolioButtonText="Explorar áreas"
+          diagnosticButtonText="Quero um projeto"
+        />
         <BrandDivider brands={defaultBrands} />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
@@ -48,18 +58,18 @@ export default function ProjetosPage() {
         </div>
 
         <FinalCtaSection
-          badge="PRONTO PARA COMEÇAR?"
+          badge="VIU O SUFICIENTE?"
           title={
             <>
-              <span className="block">Quer fazer parte</span>
+              <span className="block">Seu projeto pode ter</span>
               <span className="block">
-                <span className="italic text-[#9E372A]">do nosso time?</span>
+                <span className="italic text-[#9E372A]">mais direção</span>
               </span>
             </>
           }
-          description="Uma conversa. Sem compromisso, sem 40 slides, sem mil propostas, sem enrolação. A gente entende o seu negócio e mostra onde está a oportunidade."
-          buttonText="Envie seu currículo e portfólio"
-          buttonHref="/carreiras"
+          description="Conte onde sua marca está perdendo força e vamos apontar o próximo movimento com clareza."
+          buttonText="Fazer diagnóstico"
+          buttonHref="/diagnostico"
           floatingMessages={[]}
         />
       </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import type { MouseEvent } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -6,8 +9,16 @@ export interface LogoProps {
 }
 
 const Logo = ({ className }: LogoProps) => {
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname !== "/") return;
+
+    event.preventDefault();
+    window.history.replaceState(null, "", "/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <Link href="/" className={cn("flex gap-2 items-center", className)}>
+    <Link href="/" className={cn("flex gap-2 items-center", className)} onClick={handleClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="152"

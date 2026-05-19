@@ -42,8 +42,8 @@ const PortfolioPresentationPage = ({
   const motivationText = [
     project.description,
     leadSection?.text,
-    "A direcao do projeto nasceu da necessidade de transformar uma ideia ampla em uma presenca mais clara, consistente e desejavel. Cada decisao visual foi pensada para sustentar reconhecimento, organizar a narrativa e tornar a marca mais segura nos seus pontos de contato.",
-    "O resultado combina estrategia, ritmo visual e acabamento para criar uma entrega que nao depende de excesso. A marca ganha estrutura, o conteudo ganha leitura e a experiencia passa a comunicar valor com mais precisao.",
+    "A direção nasceu da necessidade de transformar uma ideia ampla em presença clara, consistente e desejável. Cada decisão visual sustenta reconhecimento, organiza a narrativa e torna a marca mais segura nos seus pontos de contato.",
+    "O resultado combina estratégia, ritmo visual e acabamento para criar uma entrega que não depende de excesso. A marca ganha estrutura, o conteúdo ganha leitura e a experiência passa a comunicar valor com mais precisão.",
   ]
     .filter(Boolean)
     .join(" ");
@@ -66,7 +66,7 @@ const PortfolioPresentationPage = ({
         <section className="border-b border-[rgba(114,123,142,0.1)] px-6 py-20 dark:border-[rgba(255,255,255,0.1)] md:px-13.5 md:py-[132px]">
           <div className="mx-auto max-w-[724px]">
             <div className="mb-5">
-              <p className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+              <p className="tagline-text text-[#8E90A1]">
                 MOTIVAÇÃO
               </p>
               <h2 className="mt-1 font-instrument-serif text-[36px] font-light italic leading-[40px] text-[#434A57] dark:text-[#F1F2F4]">

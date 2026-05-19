@@ -35,7 +35,6 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --font-sans: var(--font-manrope);
-  --font-inter: var(--next-font-inter);
   --font-instrument-serif: var(--font-instrument-next), serif;
   --font-mono: var(--font-geist-mono);
   --radius-sm: calc(var(--radius) - 4px);
@@ -66,6 +65,23 @@ body {
 
 * {
   cursor: url('/icons/cursor.png'), auto;
+}
+
+.tagline-text {
+  font-family: "__nextjs-Geist Mono", var(--font-geist-mono), monospace;
+  font-size: 12px;
+  font-style: normal;
+  font-synthesis: none;
+  font-weight: 600;
+  letter-spacing: 1.08px;
+  line-height: 21px;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.tagline-text.reveal-element,
+.tagline-text.reveal-target {
+  filter: none;
 }
 
 /* Page transitions */
@@ -119,16 +135,17 @@ body {
 .hero-support-reveal {
   opacity: 0;
   transform: translateY(14px);
-  filter: blur(12px);
-  animation: heroCascadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: opacity, transform, filter;
+  animation: heroSupportIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
 }
 
 .hero-architecture-reveal {
   transform: translateY(10px) scale(0.985);
   filter: blur(16px);
+  animation-name: heroCascadeIn;
   animation-delay: 0ms;
   animation-duration: 1s;
+  will-change: opacity, transform, filter;
 }
 
 .hero-architecture-reveal.reveal-target {
@@ -163,17 +180,14 @@ body {
 
 .hero-support-reveal.reveal-target {
   transform: translateY(14px);
-  filter: blur(10px);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-architecture-reveal.reveal-target.is-revealed,
 .hero-support-reveal.reveal-target.is-revealed {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
 .hero-copy-reveal.reveal-target.is-revealed .hero-word {
@@ -187,6 +201,13 @@ body {
     opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
+  }
+}
+
+@keyframes heroSupportIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -420,9 +441,9 @@ body {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
-  transition: opacity 260ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 260ms cubic-bezier(0.16, 1, 0.3, 1),
+  transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 220ms cubic-bezier(0.16, 1, 0.3, 1),
     color 240ms ease;
   will-change: opacity, transform, filter;
 }

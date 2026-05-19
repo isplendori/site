@@ -98,7 +98,7 @@ const TeamMemberCard = ({
         >
           {name}
         </button>
-        <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] self-stretch">
+        <span className="tagline-text self-stretch text-[#8E90A1]">
           {role}
         </span>
       </div>
@@ -126,7 +126,7 @@ const TeamMemberCard = ({
         <span className="font-sans font-normal text-[14px] leading-4.75 text-[#434A57] self-stretch transition-colors group-hover:text-[#9E372A]">
           {name}
         </span>
-        <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] self-stretch">
+        <span className="tagline-text self-stretch text-[#8E90A1]">
           {role}
         </span>
       </div>
@@ -197,7 +197,7 @@ const TeamMemberCard = ({
             <div className="flex flex-col justify-between gap-10 p-8 md:p-10">
               <div className="flex flex-col gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <span className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+                  <span className="tagline-text text-[#8E90A1]">
                     {role}
                   </span>
                   <h3
@@ -216,7 +216,7 @@ const TeamMemberCard = ({
 
               {specialties.length > 0 && (
                 <div className="flex flex-col gap-3">
-                  <span className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+                  <span className="tagline-text text-[#8E90A1]">
                     Especialidades
                   </span>
                   <div className="flex flex-wrap gap-2">
@@ -292,7 +292,7 @@ export const TeamMemberCtaCard = ({
           <span className="font-sans font-normal text-[14px] leading-4.75 text-[#434A57] transition-colors group-hover:text-[#9E372A]">
             {title}
           </span>
-          <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] self-stretch">
+          <span className="tagline-text self-stretch text-[#8E90A1]">
             {subtitle}
           </span>
         </div>

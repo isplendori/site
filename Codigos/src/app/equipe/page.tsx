@@ -17,20 +17,20 @@ export const metadata: Metadata = {
 };
 
 const founders = [
-  { name: "Anna", role: "CEO & DESIGN", floatingMessages: ["A CABEÇA DO TIME"] },
-  { name: "Edson", role: "CTO", floatingMessages: ["MENTE TÉCNICA"] },
-  { name: "Chuck", role: "FOUNDER", floatingMessages: ["VISÃO ESTRATÉGICA"] },
-  { name: "Sarah", role: "FOUNDER", floatingMessages: ["OLHAR CRIATIVO"] },
+  { name: "Anna", role: "CEO & DESIGN", floatingMessages: ["DIREÇÃO CRIATIVA"] },
+  { name: "Edson", role: "CTO", floatingMessages: ["BASE TÉCNICA"] },
+  { name: "Chuck", role: "FOUNDER", floatingMessages: ["VISÃO DE NEGÓCIO"] },
+  { name: "Sarah", role: "FOUNDER", floatingMessages: ["OLHAR DE MARCA"] },
 ];
 
 const team = [
-  { name: "Jonathan", role: "MARKETING", floatingMessages: ["VOZ DA MARCA"] },
-  { name: "Jarilson", role: "LEAD FRONT", floatingMessages: ["PIXEL PERFECT"] },
-  { name: "Matheus", role: "LEAD BACK", floatingMessages: ["ARQUITETO DE APIS"] },
-  { name: "Raphael", role: "JÚNIOR BACK", floatingMessages: ["EM ASCENSÃO"] },
-  { name: "João", role: "JÚNIOR DESIGN", floatingMessages: ["TALENTO EM EVOLUÇÃO"] },
-  { name: "Outframe", role: "PARCEIROS", floatingMessages: ["PARCEIRO ESTRATÉGICO"] },
-  { name: "Cheetah", role: "PARCEIROS", floatingMessages: ["PARCEIRO DE PESO"] },
+  { name: "Jonathan", role: "MARKETING", floatingMessages: ["VOZ COM DIREÇÃO"] },
+  { name: "Jarilson", role: "LEAD FRONT", floatingMessages: ["INTERFACE NO DETALHE"] },
+  { name: "Matheus", role: "LEAD BACK", floatingMessages: ["ARQUITETURA SEGURA"] },
+  { name: "Raphael", role: "COMERCIAL", floatingMessages: ["PRÓXIMO PASSO"] },
+  { name: "João", role: "JÚNIOR DESIGN", floatingMessages: ["OLHAR EM FORMAÇÃO"] },
+  { name: "Isadora", role: "COMERCIAL", floatingMessages: ["RELAÇÃO CLARA"] },
+  { name: "Talisson", role: "NETWORK", floatingMessages: ["PONTES CERTAS"] },
 ];
 
 const gmailComposeHref =
@@ -75,20 +75,20 @@ const profileDetails: Record<
       "Estrutura integrações, serviços e dados para que a experiência visual tenha uma base técnica confiável.",
     specialties: ["APIs", "Banco de dados", "Integrações"],
   },
-  Vendas: {
+  Raphael: {
     description:
       "Faz a ponte entre necessidade, proposta e próximo passo, garantindo clareza antes de qualquer entrega começar.",
     specialties: ["Atendimento", "Propostas", "Relacionamento"],
   },
-  Outframe: {
+  Isadora: {
     description:
-      "Parceiro de produção e execução criativa em projetos que pedem mais escala, repertório visual e colaboração.",
-    specialties: ["Produção", "Design", "Parceria criativa"],
+      "Acompanha contatos comerciais e relacionamento, ajudando cada conversa a virar um próximo passo claro.",
+    specialties: ["Comercial", "Relacionamento", "Atendimento"],
   },
-  Cheetah: {
+  Talisson: {
     description:
-      "Parceiro estratégico para demandas especiais, atuando junto ao time em entregas que precisam de velocidade e precisão.",
-    specialties: ["Execução", "Suporte", "Projetos especiais"],
+      "Cuida das conexões e oportunidades da rede, aproximando pessoas, projetos e frentes estratégicas.",
+    specialties: ["Network", "Parcerias", "Oportunidades"],
   },
 };
 
@@ -102,23 +102,27 @@ const teamWithProfiles = team
   .filter(
     (member) => !(member.name.startsWith("Jo") && member.role.includes("DESIGN"))
   )
-  .map((member) => {
-    const name = member.name === "Raphael" ? "Vendas" : member.name;
-
-    return {
-      ...member,
-      name,
-      role: member.name === "Raphael" ? "COMERCIAL" : member.role,
-      floatingMessages: [],
-      ...profileDetails[name],
-    };
-  });
+  .map((member) => ({
+    ...member,
+    floatingMessages: [],
+    ...profileDetails[member.name],
+  }));
 
 export default function EquipePage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection />
+        <HeroSection
+          eyebrow="EQUIPE. PROCESSO. CUIDADO."
+          titleLineOneWords={["Quem", "faz", "também"]}
+          titleLineTwoWords={["define", "o", "resultado."]}
+          titleLineTwoAccentWord="resultado."
+          titleLineOneAriaLabel="Quem faz também"
+          titleLineTwoAriaLabel="define o resultado."
+          description="A Splendori não depende de uma ideia solta. Cada entrega passa por pessoas que cuidam de estratégia, direção visual, tecnologia e relacionamento."
+          portfolioButtonText="Ver projetos"
+          diagnosticButtonText="Falar com o time"
+        />
         <BrandDivider brands={defaultBrands} />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative">
@@ -135,9 +139,9 @@ export default function EquipePage() {
 
 
         <WordmarkSection
-          badge="HISTÓRIA"
+          badge="EQUIPE"
           title={<span className="block italic">Equipe</span>}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          description="Por trás de cada projeto existe leitura, troca e decisão. A equipe combina criação, desenvolvimento, marketing e comercial para que a marca não fique bonita apenas na apresentação, mas funcione quando encontra o público."
           buttonText=""
           floatingMessages={[]}
           hideWordmark
@@ -184,8 +188,8 @@ export default function EquipePage() {
           title="Equipe"
           members={teamWithProfiles}
           emptyCard={{
-            title: "Quer fazer parte?",
-            subtitle: "ENTRE EM CONTATO",
+            title: "Quer construir com a gente?",
+            subtitle: "ABRA UMA CONVERSA",
             href: gmailComposeHref,
             external: true,
             floatingMessages: ["VEM PRO TIME"],
@@ -206,17 +210,17 @@ export default function EquipePage() {
         </div>
 
         <FinalCtaSection
-          badge="PRONTO PARA COMEÇAR?"
+          badge="QUER CONSTRUIR COM A GENTE?"
           title={
             <>
-              <span className="block">Quer fazer parte</span>
+              <span className="block">Seu trabalho pode entrar</span>
               <span className="block">
-                <span className="italic text-[#9E372A]">do nosso time?</span>
+                <span className="italic text-[#9E372A]">nesse sistema</span>
               </span>
             </>
           }
-          description="Uma conversa. Sem compromisso, sem 40 slides, sem mil propostas, sem enrolação. A gente entende o seu negócio e mostra onde está a oportunidade."
-          buttonText="Envie seu currículo e portfólio"
+          description="Envie uma apresentação objetiva. Queremos entender como você pensa, executa e cuida dos detalhes quando ninguém está olhando."
+          buttonText="Enviar portfólio"
           buttonHref={gmailComposeHref}
           buttonExternal
           floatingMessages={[]}

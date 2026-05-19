@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 
 import { Logo } from "@/components";
 import { cn } from "@/lib/utils";
@@ -25,13 +25,7 @@ const fallbackSession: Session = {
 const isUserTrail = (role: unknown): role is UserTrail =>
   role === "admin" || role === "employee" || role === "client";
 
-const getInitialSession = (): Session => {
-  if (typeof window === "undefined") {
-    return fallbackSession;
-  }
-
-  const rawSession = window.localStorage.getItem("splendori:user-session");
-
+const parseStoredSession = (rawSession: string | null): Session => {
   if (!rawSession) {
     return fallbackSession;
   }
@@ -48,11 +42,24 @@ const getInitialSession = (): Session => {
       };
     }
   } catch {
-    window.localStorage.removeItem("splendori:user-session");
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("splendori:user-session");
+    }
   }
 
   return fallbackSession;
 };
+
+const subscribeToSession = (onStoreChange: () => void) => {
+  window.addEventListener("storage", onStoreChange);
+
+  return () => window.removeEventListener("storage", onStoreChange);
+};
+
+const readStoredSessionSnapshot = () =>
+  window.localStorage.getItem("splendori:user-session");
+
+const readServerSessionSnapshot = () => null;
 
 const roleDetails: Record<UserTrail, { title: string; subtitle: string }> = {
   admin: {
@@ -133,7 +140,12 @@ const chartRows = [
 ];
 
 const DashboardPageClient = () => {
-  const session = getInitialSession();
+  const rawSession = useSyncExternalStore(
+    subscribeToSession,
+    readStoredSessionSnapshot,
+    readServerSessionSnapshot
+  );
+  const session = useMemo(() => parseStoredSession(rawSession), [rawSession]);
 
   const projects = useMemo(
     () => allProjects.filter((project) => project.roles.includes(session.role)),
@@ -194,7 +206,7 @@ const DashboardPageClient = () => {
       <main className="mx-auto flex w-full max-w-304 flex-col border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] sm:border-x">
         <section className="grid min-h-100 grid-cols-1 border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] lg:grid-cols-[1fr_360px]">
           <div className="flex flex-col justify-end gap-5 px-6 py-12 md:px-13.5">
-            <span className="reveal-element font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+            <span className="tagline-text reveal-element text-[#8E90A1]">
               {session.roleLabel}
             </span>
             <div className="flex max-w-155 flex-col gap-3">
@@ -228,7 +240,7 @@ const DashboardPageClient = () => {
               key={metric.label}
               className="reveal-element flex min-h-36 flex-col justify-end gap-2 border-b border-[rgba(114,123,142,0.1)] p-6 last:border-b-0 dark:border-[rgba(255,255,255,0.1)] md:border-b-0 md:border-r md:last:border-r-0"
             >
-              <span className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+              <span className="tagline-text text-[#8E90A1]">
                 {metric.label}
               </span>
               <strong className="font-instrument-serif text-[34px] font-light leading-9 text-[#434A57]">
@@ -275,7 +287,7 @@ const DashboardPageClient = () => {
           </div>
 
           <aside id="captchas" className="border-t border-[rgba(114,123,142,0.1)] p-6 dark:border-[rgba(255,255,255,0.1)] lg:border-l lg:border-t-0">
-            <span className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+            <span className="tagline-text text-[#8E90A1]">
               Captchas
             </span>
             <div className="mt-5 grid gap-3">
@@ -316,7 +328,7 @@ const DashboardPageClient = () => {
           </div>
 
           <aside id="configuracoes" className="border-t border-[rgba(114,123,142,0.1)] p-6 dark:border-[rgba(255,255,255,0.1)] lg:border-l lg:border-t-0">
-            <span className="font-mono text-[12px] font-semibold uppercase leading-5.25 tracking-[0.09em] text-[#8E90A1]">
+            <span className="tagline-text text-[#8E90A1]">
               Configurações
             </span>
             <div className="mt-5 grid gap-3 font-sans text-[13px] leading-5 text-[#8E90A1]">

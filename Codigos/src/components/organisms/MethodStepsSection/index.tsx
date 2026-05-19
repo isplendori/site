@@ -42,7 +42,7 @@ const MethodStepsSection = ({
       <div className="flex flex-col items-start p-0 gap-3.5 w-full lg:w-107.25 lg:sticky top-25 self-start">
         <div className="flex flex-col items-start p-0 w-full lg:w-79.5">
           {badge && (
-            <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
+            <span className="tagline-text text-[#8E90A1]">
               {badge}
             </span>
           )}

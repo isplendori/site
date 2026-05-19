@@ -62,7 +62,7 @@ const ProjectCard = ({
 
         <div className="absolute left-0 right-0 bottom-0 h-[182.09px] flex flex-col justify-end items-start px-6 md:px-11.5 py-6 md:py-10.5 gap-2.5 bg-[linear-gradient(1.74deg,rgba(251,251,251,0.69)_1.47%,rgba(250,250,250,0)_98.53%)] dark:bg-[linear-gradient(1.74deg,rgba(10,10,10,0.69)_1.47%,rgba(10,10,10,0)_98.53%)] rounded-b-[14px]">
           <div className="flex flex-col items-start p-0 gap-1 w-full md:w-79.25 max-w-full">
-            <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] self-stretch">
+            <span className="tagline-text self-stretch text-[#8E90A1]">
               {category}
             </span>
             <h3 className="font-instrument-serif font-light text-[30px] leading-9 text-[#434A57]">

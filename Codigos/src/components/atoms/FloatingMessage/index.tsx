@@ -58,7 +58,7 @@ const FloatingMessage = ({ messages, isVisible = false, className }: FloatingMes
       }}
     >
       <div className="flex flex-row justify-center items-center p-3 gap-2.5 bg-[#9E372A] border-2 border-white rounded-sm shadow-lg">
-        <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-white dark:text-[#12141B] flex items-center">
+        <span className="tagline-text flex items-center text-white dark:text-[#12141B]">
           {messages[currentMessage]}
         </span>
       </div>

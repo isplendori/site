@@ -6,13 +6,13 @@ const DropdownPortfolio = () => {
     {
       href: "/portfolio/projetos",
       title: "Projetos",
-      description: "Trabalhos comerciais, marcas, sites e campanhas.",
+      description: "Marcas, sites e campanhas criados para resolver presença com critério.",
       icon: "star",
     },
     {
       href: "/portfolio/autorais",
       title: "Autorais",
-      description: "Estudos, experimentos e criações independentes.",
+      description: "Ensaios visuais onde testamos linguagem, ritmo e direção de marca.",
       icon: "star",
     },
   ];

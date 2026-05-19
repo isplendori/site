@@ -12,7 +12,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Autorais — Splendori",
-  description: "Estudos, experimentos e criações independentes.",
+  description: "Estudos visuais onde a Splendori testa linguagem, ritmo e direção.",
 };
 
 const projects = autoraisData.map((project) => ({
@@ -25,7 +25,17 @@ export default function AutoraisPage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection />
+        <HeroSection
+          eyebrow="AUTORAL. ESTUDO. LINGUAGEM."
+          titleLineOneWords={["Antes", "de", "virar", "projeto,"]}
+          titleLineTwoWords={["a", "ideia", "é", "testada."]}
+          titleLineTwoAccentWord="testada."
+          titleLineOneAriaLabel="Antes de virar projeto,"
+          titleLineTwoAriaLabel="a ideia é testada."
+          description="Os estudos autorais revelam nosso processo de linguagem: composição, tipografia, imagem e sistema antes de existir um briefing comercial."
+          portfolioButtonText="Ver estudos"
+          diagnosticButtonText="Falar com a Splendori"
+        />
         <BrandDivider brands={defaultBrands} />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
@@ -55,18 +65,18 @@ export default function AutoraisPage() {
         </div>
 
         <FinalCtaSection
-          badge="PRONTO PARA COMEÇAR?"
+          badge="GOSTOU DA DIREÇÃO?"
           title={
             <>
-              <span className="block">Quer fazer parte</span>
+              <span className="block">Vamos transformar intenção</span>
               <span className="block">
-                <span className="italic text-[#9E372A]">do nosso time?</span>
+                <span className="italic text-[#9E372A]">em projeto</span>
               </span>
             </>
           }
-          description="Uma conversa. Sem compromisso, sem 40 slides, sem mil propostas, sem enrolação. A gente entende o seu negócio e mostra onde está a oportunidade."
-          buttonText="Envie seu currículo e portfólio"
-          buttonHref="/carreiras"
+          description="Se sua marca precisa de uma linguagem mais clara, o próximo passo é entender o que hoje está solto."
+          buttonText="Fazer diagnóstico"
+          buttonHref="/diagnostico"
           floatingMessages={[]}
         />
       </div>

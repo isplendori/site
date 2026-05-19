@@ -42,7 +42,7 @@ const TeamCard = ({
       </div>
 
       <div className="flex flex-col items-start gap-1.5 w-full">
-        <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]">
+        <span className="tagline-text text-[#8E90A1]">
           {role}
         </span>
         <h3 className="font-instrument-serif font-light text-[36px] leading-10.75 text-[#434A57]">

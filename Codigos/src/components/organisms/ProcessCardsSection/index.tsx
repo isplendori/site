@@ -12,23 +12,23 @@ const ProcessCardsSection = ({ className }: ProcessCardsSectionProps) => {
     <section className={cn("process-timeline relative w-full bg-white dark:bg-[#0A0A0A]", className)}>
       <div className="grid grid-cols-1 md:grid-cols-3 w-full">
         <ProcessCard
-          eyebrow="SEM COMPROMISSO"
+          eyebrow="ANTES DE PROPOR"
           title="Diagnóstico"
-          description="Entendemos seu negócio, analisamos seus concorrentes e identificamos onde está a oportunidade do seu comércio."
+          description="Lemos o negócio, o público e os pontos de atrito da marca para separar problema real de gosto pessoal."
           stepIndex={0}
           className="min-h-63.75 border-l-0"
         />
         <ProcessCard
-          eyebrow="SEM ENROLAÇÃO"
-          title="Alinhamento"
-          description="Chegamos juntos no formato e valor que faz sentido para o seu momento: assinatura ou por projeto específico."
+          eyebrow="COM DIREÇÃO"
+          title="Estrutura"
+          description="Definimos formato, prioridade e caminho de execução. A marca ganha regra antes de ganhar acabamento."
           stepIndex={1}
           className="min-h-63.75 border-l-0"
         />
         <ProcessCard
-          eyebrow="INICIAMOS EM 48H"
+          eyebrow="COM ACOMPANHAMENTO"
           title="Execução"
-          description="Contrato assinado, projeto iniciado em até 48 horas úteis. Com acompanhamento real, sem sumiço."
+          description="Produzimos com cadência, revisão e critério. Você acompanha o avanço sem precisar decifrar o processo."
           stepIndex={2}
           className="min-h-63.75 border-l-0 border-r-0"
         />

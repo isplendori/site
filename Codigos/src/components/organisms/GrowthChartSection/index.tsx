@@ -6,25 +6,25 @@ import { cn } from "@/lib/utils";
 import { GrowthChartSectionProps, MonthData } from "./types";
 
 const defaultStats = [
-  { value: "10X", label: "Streamlined execution" },
-  { value: "90%", label: "Workstream reduced" },
-  { value: "24/7", label: "Automated execution" },
-  { value: "5+", label: "Automated workflows" }
+  { value: "10X", label: "Mais clareza na presença" },
+  { value: "90%", label: "Menos retrabalho visual" },
+  { value: "24/7", label: "Marca pronta para vender" },
+  { value: "5+", label: "Frentes conectadas" }
 ];
 
 const defaultData: MonthData[] = [
   { month: "Jan", value: 2 },
-  { month: "Feb", value: 3 },
+  { month: "Fev", value: 3 },
   { month: "Mar", value: 5 },
-  { month: "Apr", value: 9 },
-  { month: "May", value: 15 },
-  { month: "June", value: 23 },
-  { month: "July", value: 32 },
-  { month: "Aug", value: 44 },
-  { month: "Sep", value: 57 },
-  { month: "Oct", value: 71 },
+  { month: "Abr", value: 9 },
+  { month: "Mai", value: 15 },
+  { month: "Jun", value: 23 },
+  { month: "Jul", value: 32 },
+  { month: "Ago", value: 44 },
+  { month: "Set", value: 57 },
+  { month: "Out", value: 71 },
   { month: "Nov", value: 86 },
-  { month: "Dec", value: 102 },
+  { month: "Dez", value: 102 },
 ];
 
 const createSmoothPath = (points: Array<MonthData & { x: number; y: number }>) => {

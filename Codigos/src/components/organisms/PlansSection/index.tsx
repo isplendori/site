@@ -72,7 +72,7 @@ const PlansSection = ({
       <div className="flex flex-col justify-center items-center p-0 gap-4.25 w-181.5 max-w-full py-14.5">
         <div className="flex flex-col justify-center items-center p-0 w-131 max-w-full">
           {badge && (
-            <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] text-center">
+            <span className="tagline-text text-center text-[#8E90A1]">
               {badge}
             </span>
           )}
@@ -130,7 +130,7 @@ const PlansSection = ({
 
           <div className="relative z-10 w-157.5 max-w-full">
             <div className="absolute left-16.5 -top-4 z-20 flex flex-col justify-center items-center px-2.5 py-2.5 bg-[#202026] dark:bg-white border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-sm">
-              <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#727B8E] dark:text-[#A0A8B8]">
+              <span className="tagline-text text-[#727B8E] dark:text-[#A0A8B8]">
                 {monthlyPlan.includedLabel}
               </span>
             </div>

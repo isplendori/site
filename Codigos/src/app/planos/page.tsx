@@ -12,25 +12,25 @@ import {
 export const metadata: Metadata = {
   title: "Planos — Splendori",
   description:
-    "Imagens valem mais que mil propostas. Planos sob medida para sua marca crescer.",
+    "Planos para marcas que precisam de produção consistente sem perder direção.",
 };
 
 const monthlyFeatures = [
-  "Pedidos ilimitados",
-  "Entrega sequencial",
-  "Projeto entregue em 72 horas",
-  "Revisões ilimitadas",
-  "Todos os arquivos fontes",
-  "Comunicação assíncrona",
-  "Qualquer tipo de design",
-  "Pause ou cancele quando quiser",
+  "Demandas de design recorrentes",
+  "Entrega por prioridade",
+  "Primeira direção em até 72h",
+  "Revisões com critério",
+  "Arquivos finais organizados",
+  "Comunicação objetiva",
+  "Marca, site e conteúdo",
+  "Pause ou cancele quando fizer sentido",
 ];
 
 const guarantees = [
   {
-    title: "Teste por uma semana",
+    title: "Comece sem travar",
     description:
-      "Não amou após a semana? Devolvemos 75% do valor, sem perguntas.",
+      "A primeira semana valida ritmo, comunicação e encaixe antes de você depender do processo.",
   },
 ];
 
@@ -38,7 +38,17 @@ export default function PlanosPage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection />
+        <HeroSection
+          eyebrow="PLANOS. ROTINA. ENTREGA."
+          titleLineOneWords={["Design", "recorrente", "sem"]}
+          titleLineTwoWords={["perder", "direção."]}
+          titleLineTwoAccentWord="direção."
+          titleLineOneAriaLabel="Design recorrente sem"
+          titleLineTwoAriaLabel="perder direção."
+          description="Para marcas que precisam de cadência, mas não querem transformar cada peça em uma nova reunião, um novo orçamento e uma nova dúvida."
+          portfolioButtonText="Ver projetos"
+          diagnosticButtonText="Escolher plano"
+        />
         <BrandDivider brands={defaultBrands} />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative">
@@ -54,24 +64,24 @@ export default function PlanosPage() {
         </div>
 
         <PlansSection
-          badge="PORTFÓLIO"
+          badge="PLANO"
           title={
             <>
-              Imagens <span className="italic text-[#9E372A]">valem mais</span> que mil propostas.
+              Produção constante precisa de <span className="italic text-[#9E372A]">sistema</span>.
             </>
           }
           freePlan={{
             name: (
               <>
-                <span className="block">Join</span>
-                <span className="block">Designjoy</span>
+                <span className="block">Comece</span>
+                <span className="block">por aqui</span>
               </>
             ),
-            ctaText: "Entre em contato",
+            ctaText: "Falar agora",
             ctaHref: "/contato",
           }}
           monthlyPlan={{
-            title: "Clube Mensal",
+            title: "Plano Mensal",
             features: monthlyFeatures,
             includedLabel: "INCLUSO",
             price: "R$1,800",
@@ -93,18 +103,18 @@ export default function PlanosPage() {
         </div>
 
         <FinalCtaSection
-          badge="PRONTO PARA COMEÇAR?"
+          badge="PRONTO PARA TER RITMO?"
           title={
             <>
-              <span className="block">Quer fazer parte</span>
+              <span className="block">Sua demanda não precisa</span>
               <span className="block">
-                <span className="italic text-[#9E372A]">do nosso time?</span>
+                <span className="italic text-[#9E372A]">parar toda semana</span>
               </span>
             </>
           }
-          description="Uma conversa. Sem compromisso, sem 40 slides, sem mil propostas, sem enrolação. A gente entende o seu negócio e mostra onde está a oportunidade."
-          buttonText="Envie seu currículo e portfólio"
-          buttonHref="/carreiras"
+          description="Vamos entender volume, prioridade e momento da sua marca para indicar o formato mais leve de começar."
+          buttonText="Falar sobre o plano"
+          buttonHref="/contato"
           floatingMessages={[]}
         />
       </div>

@@ -135,7 +135,7 @@ const PortfolioProjectsShowcase = () => {
   return (
     <section className="w-full border-x border-b border-[rgba(114,123,142,0.1)] bg-white text-[#434A57] dark:border-[rgba(255,255,255,0.1)] dark:bg-[#0A0A0A]">
       <div className="flex min-h-[314px] w-full flex-col items-center justify-center bg-white">
-        <p className="reveal-element h-[29px] w-full max-w-[966px] font-mono text-[12px] font-semibold uppercase leading-[21px] tracking-[1.08px] text-[#8E90A1]">
+        <p className="tagline-text reveal-element h-[29px] w-full max-w-[966px] text-[#8E90A1]">
           ÁREAS DE ATUAÇÃO
         </p>
 

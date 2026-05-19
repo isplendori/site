@@ -6,13 +6,13 @@ const DropdownSobre = () => {
     {
       href: "/sobre/historia",
       title: "História",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+      description: "De onde vem nossa forma de unir marca, tecnologia e direção criativa.",
       icon: "star",
     },
     {
       href: "/sobre/metodo",
       title: "Método",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+      description: "Como transformamos intenção em sistema visual, conteúdo e execução.",
       icon: "star",
     },
     {
@@ -24,7 +24,7 @@ const DropdownSobre = () => {
     {
       href: "/sobre/causas",
       title: "Causas",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+      description: "Projetos e instituições que ampliam o sentido do que escolhemos apoiar.",
       icon: "star",
     },
   ];

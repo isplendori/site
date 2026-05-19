@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "História — Splendori",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    "Conheça a origem, a visão e a forma como a Splendori constrói marcas com presença real.",
 };
 
 const teamMembers = [
@@ -21,15 +21,15 @@ const teamMembers = [
     role: "CEO",
     name: "Anna",
     description:
-      "Logo feito na correria, redes paradas, site na IA, identidade que não passa o que você vale. Não sobra tempo, não tem firmeza, e a sensação de que o negócio poderia ir mais longe fica só na cabeça.",
-    tags: ["Designer", "Minimalismo", "Identidade Visual", "UI/UX"],
+      "Trouxe para a Splendori uma visão de marca limpa, estratégica e sensível aos detalhes que fazem uma empresa ser lembrada.",
+    tags: ["Designer", "Minimalismo", "Identidade Visual"],
   },
   {
     role: "CTO",
     name: "Edson",
     description:
-      "Logo feito na correria, redes paradas, site na IA, identidade que não passa o que você vale. Não sobra tempo, não tem firmeza, e a sensação de que o negócio poderia ir mais longe fica só na cabeça.",
-    tags: ["Ciência de Dados", "Tecnologia", "Administração", "UI/UX"],
+      "Transformou método, tecnologia e dados em base para que cada entrega visual tenha estrutura, segurança e continuidade.",
+    tags: ["Ciência de Dados", "Tecnologia", "Administração"],
   },
 ];
 
@@ -37,7 +37,17 @@ export default function HistoriaPage() {
   return (
     <MainLayout>
       <div className="flex w-full max-w-304 mx-auto flex-col items-center px-4 sm:px-0 sm:border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)]">
-        <HeroSection />
+        <HeroSection
+          eyebrow="HISTÓRIA. CRITÉRIO. PRESENÇA."
+          titleLineOneWords={["A", "Splendori", "nasceu", "de"]}
+          titleLineTwoWords={["um", "incômodo", "simples."]}
+          titleLineTwoAccentWord="simples."
+          titleLineOneAriaLabel="A Splendori nasceu de"
+          titleLineTwoAriaLabel="um incômodo simples."
+          description="Marcas boas estavam se apresentando como rascunho. A Splendori surgiu para aproximar estratégia, estética e tecnologia em uma presença que o cliente entende e respeita."
+          portfolioButtonText="Conheça nosso portfólio"
+          diagnosticButtonText="Fale com a Splendori"
+        />
         <BrandDivider brands={defaultBrands} />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative">
@@ -57,9 +67,9 @@ export default function HistoriaPage() {
           buttonText="Saiba quem está conosco"
           buttonHref="/equipe"
           buttonVariant="outline"
-          floatingMessages={['Conheça a equipe']}
+          floatingMessages={["Conheça a equipe"]}
           title={<span className="block">História</span>}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          description="A nossa história não começa com uma promessa grande. Começa com atenção ao que normalmente passa batido: mensagem desalinhada, visual sem sistema e tecnologia sem cuidado. É nesse ponto que a marca perde confiança."
         />
 
         <div className="flex flex-col items-center justify-center w-full h-full relative mb-40">
@@ -99,18 +109,18 @@ export default function HistoriaPage() {
         </div>
 
         <FinalCtaSection
-          badge="PRONTO PARA COMEÇAR?"
+          badge="QUER ENTENDER O PRÓXIMO PASSO?"
           title={
             <>
-              <span className="block">Quer fazer parte</span>
+              <span className="block">Sua marca também pode</span>
               <span className="block">
-                <span className="italic text-[#9E372A]">do nosso time?</span>
+                <span className="italic text-[#9E372A]">ganhar história</span>
               </span>
             </>
           }
-          description="Uma conversa. Sem compromisso, sem 40 slides, sem mil propostas, sem enrolação. A gente entende o seu negócio e mostra onde está a oportunidade."
-          buttonText="Envie seu currículo e portfólio"
-          buttonHref="/carreiras"
+          description="Vamos entender onde sua presença começou a se perder e qual decisão pode reorganizar a percepção do seu negócio."
+          buttonText="Falar com a Splendori"
+          buttonHref="/contato"
           floatingMessages={[]}
         />
       </div>

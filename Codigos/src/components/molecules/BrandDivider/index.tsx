@@ -17,7 +17,7 @@ const BrandDivider = ({
     <div className={className || "flex flex-row items-center w-full max-w-304 h-26.25 mx-auto border-t border-b border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] overflow-hidden bg-white dark:bg-[#0A0A0A]"}>
       {/* Bloco estático (CASES) */}
       <div className="relative flex-shrink-0 flex flex-col justify-center items-center gap-1 w-67.5 h-full bg-white dark:bg-[#0A0A0A] border-x border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] z-20">
-        <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1] w-40.5 h-3 flex items-center z-10">
+        <span className="tagline-text z-10 flex h-5.25 w-40.5 items-center text-[#8E90A1]">
           {title}
         </span>
         <span className="font-sans font-normal text-[16px] leading-5.5 text-[#434A57] w-40.5 h-3.75 flex items-center z-10">

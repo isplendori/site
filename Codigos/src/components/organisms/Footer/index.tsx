@@ -7,8 +7,7 @@ export interface FooterProps {
 }
 
 const Footer = ({ className }: FooterProps) => {
-  const footerTitleClassName =
-    "font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#909093]";
+  const footerTitleClassName = "tagline-text text-[#909093]";
   const sitemapLinkClassName =
     "w-full font-sans font-normal text-[14px] leading-4.75 text-[#909093] hover:text-[#9E372A] transition-colors";
 
@@ -19,8 +18,7 @@ const Footer = ({ className }: FooterProps) => {
         <Logo />
 
         <p className="w-full md:w-[373.5px] font-sans font-normal text-[14px] leading-4.75 text-[#8E90A1]">
-          Casa de design e tecnologia dedicada a construir marcas que geram desejo, autoridade e resultado. Do
-          branding ao digital, tudo pensado com propósito.
+          Casa de marca, design e tecnologia para negócios que precisam transformar presença solta em sistema claro, reconhecível e pronto para crescer.
         </p>
 
         <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-2.75 w-full md:w-81.25 h-auto md:h-9">

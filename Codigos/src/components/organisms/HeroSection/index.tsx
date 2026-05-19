@@ -10,6 +10,15 @@ import { cn } from "@/lib/utils";
 export interface HeroSectionProps {
   className?: string;
   descriptionClassName?: string;
+  eyebrow?: string;
+  titleLineOneWords?: string[];
+  titleLineTwoWords?: string[];
+  titleLineTwoAccentWord?: string;
+  titleLineOneAriaLabel?: string;
+  titleLineTwoAriaLabel?: string;
+  description?: string;
+  portfolioButtonText?: string;
+  diagnosticButtonText?: string;
 }
 
 const renderWords = (words: string[], accentWord?: string, baseDelay = 0) => {
@@ -28,7 +37,19 @@ const renderWords = (words: string[], accentWord?: string, baseDelay = 0) => {
   ));
 };
 
-const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
+const HeroSection = ({
+  className,
+  descriptionClassName,
+  eyebrow = "DESIGN. ESTRATÉGIA. TECNOLOGIA.",
+  titleLineOneWords = ["Sua", "marca", "não", "precisa", "gritar."],
+  titleLineTwoWords = ["Precisa", "ser", "lembrada."],
+  titleLineTwoAccentWord = "lembrada.",
+  titleLineOneAriaLabel = "Sua marca não precisa gritar.",
+  titleLineTwoAriaLabel = "Precisa ser lembrada.",
+  description = "A Splendori organiza estratégia, visual e tecnologia para marcas que cansaram de parecer improviso. Cada entrega nasce com intenção, aplicação real e direção para crescer.",
+  portfolioButtonText = "Ver projetos",
+  diagnosticButtonText = "Diagnosticar minha marca",
+}: HeroSectionProps) => {
   const [showFloatingMessage, setShowFloatingMessage] = useState(false);
   const [showPortfolioMessage, setShowPortfolioMessage] = useState(false);
 
@@ -46,23 +67,23 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
       <div className="relative z-10 mt-8 flex w-full flex-col items-center gap-4.5 md:mt-[110px]">
         <div className="hero-support-reveal flex h-auto min-h-9 max-w-full flex-row justify-center items-center px-4 py-2 gap-2.5 bg-white dark:bg-[#0A0A0A] border border-[rgba(114,123,142,0.1)] dark:border-[rgba(255,255,255,0.1)] rounded-[200px]" style={{ animationDelay: "180ms" }}>
           <Star />
-          <span className="font-mono font-semibold text-[12px] leading-5.25 tracking-[0.09em] uppercase text-[#8E90A1]  h-5.25 flex items-center">
-            DESIGN. ESTRATÉGIA. TECNOLOGIA.
+          <span className="tagline-text flex h-5.25 items-center text-[#8E90A1]">
+            {eyebrow}
           </span>
         </div>
 
         <div className="flex flex-col items-center gap-2">
           <h1
             className="hero-copy-reveal font-instrument-serif font-light text-[38px] leading-[40px] text-center text-[#202026] dark:text-[#F1F2F4] md:text-[44px] md:leading-11.25"
-            aria-label="Não somos uma agência."
+            aria-label={titleLineOneAriaLabel}
           >
-            {renderWords(["Não", "somos", "uma", "agência."], undefined, 420)}
+            {renderWords(titleLineOneWords, undefined, 420)}
           </h1>
           <h2
             className="hero-copy-reveal font-instrument-serif italic font-light text-[38px] leading-[34px] text-center text-[#202026] dark:text-[#F1F2F4] md:text-[44px] md:leading-9.5"
-            aria-label="Somos resultados."
+            aria-label={titleLineTwoAriaLabel}
           >
-            {renderWords(["Somos", "resultados."], "resultados.", 780)}
+            {renderWords(titleLineTwoWords, titleLineTwoAccentWord, 780)}
           </h2>
         </div>
 
@@ -73,7 +94,7 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
           )}
           style={{ animationDelay: "1120ms" }}
           >
-            Não entregamos apenas arquivo. Por trás de cada projeto existe alguém que estudou seu negócio, entendeu seu cliente e tomou decisões com propósito. Resultado real. Presença real.
+            {description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-1 h-auto sm:h-9 mt-4 sm:mt-0">
@@ -85,7 +106,7 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
               onMouseLeave={() => setShowPortfolioMessage(false)}
             >
               <span className="font-sans text-[14px] leading-5 text-center text-[#8E90A1] group-hover:text-[#9E372A] transition-colors">
-                Conheça nosso portfólio
+                {portfolioButtonText}
               </span>
             </Link>
 
@@ -98,18 +119,18 @@ const HeroSection = ({ className, descriptionClassName }: HeroSectionProps) => {
             >
               <Star color="#FFFFFF" className="group-hover:fill-[#FFFFFF] transition-colors" />
               <span className="font-sans text-[14px] leading-5 text-center text-white dark:text-[#12141B]">
-                Quero meu diagnóstico
+                {diagnosticButtonText}
               </span>
             </Link>
           </div>
         </div>
 
         <FloatingMessage
-          messages={["Sem reunião de 3 horas."]}
+        messages={["Sem reunião infinita."]}
           isVisible={showFloatingMessage}
         />
         <FloatingMessage
-          messages={["VEM VER DE PERTO."]}
+        messages={["OLHE COM CALMA."]}
           isVisible={showPortfolioMessage}
         />
       </div>

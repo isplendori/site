@@ -7,14 +7,14 @@ const SolutionSection = ({
   badge = "A SOLUÇÃO",
   title = (
     <>
-      <span className="block">Nós pensamos por você</span>
-      <span className="block">
-        e você começa a <span className="italic text-[#9E372A]">crescer</span>.
-      </span>
+        <span className="block">A gente organiza o que</span>
+        <span className="block">
+          estava <span className="italic text-[#9E372A]">solto</span>.
+        </span>
     </>
   ),
-  description = "Sua marca ganha estrutura, presença e direção. Cada decisão tomada com propósito, cada entrega pensada para o seu negócio. Para você parar de improvisar e começar a ser levado a sério.",
-  buttonText = "Conheça nosso método",
+  description = "Antes de desenhar, entendemos o negócio, a promessa e o ponto em que a comunicação perde força. Depois disso, cada peça entra no sistema com função clara.",
+  buttonText = "Ver nosso método",
   buttonHref = "/sobre/metodo",
   buttonIcon,
   showFloatingMessage = false,
@@ -29,7 +29,7 @@ const SolutionSection = ({
     >
       <div className="flex w-full flex-col items-start justify-center px-6 md:px-13.5">
         <div className="flex w-full max-w-[429px] flex-col items-start gap-4">
-          <span className="anna-solution-kicker reveal-element font-mono text-[12px] font-semibold leading-[21px] tracking-[0.09em] text-[#8E90A1] uppercase">
+          <span className="anna-solution-kicker tagline-text reveal-element text-[#8E90A1]">
             {badge}
           </span>
 
